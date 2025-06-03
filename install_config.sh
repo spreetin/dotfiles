@@ -30,22 +30,22 @@ while [ $# -gt 0 ]; do
 done
 
 APPLICATIONS="zsh neovim mc ripgrep"
-GENTOO_APPS="app-shells/zsh app-editors/neovim app-misc/mc media-gfx/imagemagick sys-apps/ripgrep"
-FEDORA_APPS="${APPLICATIONS} ImageMagick"
-APPLICATIONS="${APPLICATIONS} imagemagick"
-
+GENTOO_APPS="app-shells/zsh app-editors/neovim app-misc/mc media-gfx/imagemagick sys-apps/ripgrep dev-python/pygments"
 if [ -n "${XAPPS}" ]; then
     APPLICATIONS="${APPLICATIONS} kitty"
     GENTOO_APPS="${GENTOO_APPS} x11-terms/kitty"
 fi
+FEDORA_APPS="${APPLICATIONS} ImageMagick python-pygments"
+ARCH_APPS="${APPLICATIONS} python-pygments imagemagick"
+DEBIAN_APPS="${APPLICATIONS} imagemagick"
 
 # Install necesary packages, if not already installed
 if [ -x "$(command -v emerge)" ]; then
     sudo emerge -avn ${GENTOO_APPS}
 elif [ -x "$(command -v pacman)" ]; then
-    sudo pacman -S ${APPLICATIONS}
+    sudo pacman -S ${ARCH_APPS}
 elif [ -x "$(command -v apt)" ]; then
-    sudo apt install ${APPLICATIONS}
+    sudo apt install ${DEBIAN_APPS}
 elif [ -x "$(command -v dnf)" ]; then
     sudo dnf install ${FEDORA_APPS}
 else
@@ -89,7 +89,7 @@ if [ -e ~/.config/nvim/init.lua ]; then
 fi
 ln -s "${SCRIPT_PATH}/neovim/init.lua" ~/.config/nvim/init.lua
 
-# Download fonts locally, if not installed
+# Download fonts locally
 mkdir -p ~/.local/share/fonts/
 wget -P ~/.local/share/fonts/ https://github.com/googlefonts/noto-emoji/raw/refs/heads/main/fonts/NotoColorEmoji.ttf
 wget -P ~/.local/share/fonts/ https://github.com/ya2s/nonicons/raw/refs/heads/master/dist/nonicons.ttf
