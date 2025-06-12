@@ -1,18 +1,15 @@
-{
+/*{
     // General Settings
     "layer": "top",
     "margin-top": 3,
     "margin-bottom": 0,
     "margin-left": 5,
-    "margin-right": 5,    
+    "margin-right": 5,
     "spacing": 0,
-
     // Load Modules
     "include": [
-        //"~/.config/ml4w/settings/waybar-quicklinks.json",
-        "~/.config/waybar/modules.json"
+        "~/.config/waybar/modules"
     ],
-
     // Modules Left
     "modules-left": [
         "custom/appmenu",
@@ -22,12 +19,10 @@
         "hyprland/window",
         "custom/empty"
     ],
-
     // Modules Center
     "modules-center": [
         "hyprland/workspaces"
     ],
-
     // Modules Right    
     "modules-right": [
         "custom/updates",
@@ -35,7 +30,7 @@
         //"backlight",
         "bluetooth",
         "network",
-        "battery", 
+        "battery",
         "power-profiles-daemon",
         "group/hardware",
         "group/tools",
@@ -44,5 +39,45 @@
         "custom/exit",
         //"custom/ml4w-welcome",
         "clock"
+    ]
+}*/
+{
+    "include": [
+        "$HOME/.config/waybar/modules"
+    ],
+    "layer": "top",
+    "exclusive": true,
+    "passthrough": false,
+    "position": "top",
+    "spacing": 4,
+    "fixed-center": true,
+    "ipc": true,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "modules-left": [
+        "custom/appmenu",
+        "temperature",
+        "cpu",
+        "memory",
+        "disk",
+        "disk#home",
+        "hyprland/window",
+    ],
+    "modules-center": [
+        "custom/empty",
+        "custom/swaync",
+        "hyprland/workspaces#rw",
+        "clock",
+        "custom/weather",
+        "custom/empty",
+    ],
+    "modules-right": [
+        "tray",
+        "network#speed",
+        "pulseaudio",
+        "pulseaudio#microphone",
+        "custom/lock",
+        "custom/power",
     ]
 }
