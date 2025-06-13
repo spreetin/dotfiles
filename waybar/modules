@@ -270,6 +270,10 @@
         "format": "{free} 󰋊",
         "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)",
         "on-click": "thunar /",
+        "states": {
+            "warning": 75,
+            "critical": 90
+        }
     },
     "disk#home": {
         "interval": 30,
@@ -277,6 +281,10 @@
         "format": "{free} 󰋊",
         "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)",
         "on-click": "thunar /home/david/",
+        "states": {
+            "warning": 90,
+            "critical": 97
+        }
     },
     "memory": {
         "interval": 10,

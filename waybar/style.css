@@ -33,9 +33,15 @@
 @define-color textcolor3 #FFFFFF;
 @define-color iconcolor #FFFFFF;
 
-@define-color textColor #cba6a6; /*#ed8888;*/
-@define-color darkTextColor #ad5858;
-@define-color moduleBackground rgba(33, 16, 34, 0.8);
+/*@define-color textColor #ddb8b8;*/ /*#cba6a6; #ed8888;*/
+/*@define-color darkTextColor #ad5858;
+@define-color moduleBackground rgba(33, 16, 34, 0.8);*/
+@define-color textColor #9090e0;
+@define-color darkTextColor #66f;
+@define-color moduleBack1 rgba(30, 30, 80, 0.9);
+@define-color moduleBack2 rgba(0, 0, 20, 0.8);
+@define-color moduleBack3 rgba(0, 0, 0, 0.1);
+@define-color moduleBackground @moduleBack2;
 
 @import 'wallust/colors-waybar.css';
 @import "latte.css";
@@ -107,26 +113,29 @@ tooltip {
 
 /*-----module groups----*/
 .modules-left {
-    background-color: @moduleBackground;
+    /*background-color: @moduleBackground;*/
+    background: linear-gradient(0deg, @moduleBack3 0%, @moduleBack2 10%, @moduleBack1 100%);
     border-radius: 0px 0px 20px 0px;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    padding-top: 2px;
+    padding-bottom: 5px;
     padding-right: 10px;
 }
 .modules-right {
     /*background-color: transparent;*/
-    background-color: @moduleBackground;
+    /*background-color: @moduleBackground;*/
+    background: linear-gradient(0deg, @moduleBack3 0%, @moduleBack2 10%, @moduleBack1 100%);
     border-radius: 0px 0px 0px 20px;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    padding-top: 2px;
+    padding-bottom: 5px;
     padding-left: 10px;
 }
 
 .modules-center {
-    background-color: @moduleBackground;
+    /*background-color: @moduleBackground;*/
+    background: linear-gradient(0deg, @moduleBack3 0%, @moduleBack2 10%, @moduleBack1 100%);
     border-radius: 0px 0px 20px 20px;
-	padding-top: 4px;
-	padding-bottom: 4px;
+	padding-top: 2px;
+	padding-bottom: 5px;
 	padding-left: 10px;
 	padding-right: 6px;
 }
@@ -192,16 +201,21 @@ tooltip {
 	padding-left: 6px;
 }
 
+#disk.warning,
+#disk#home.warning,
 #temperature.warning {
     color: yellow;
 }
 
+#disk.critical,
+#disk#home.critical,
 #temperature.critical {
     color: red;
 }
 
 #temperature.critical {
     background-color: #ff0000;
+    color: white;
 }
 
 @keyframes blink {
@@ -299,39 +313,40 @@ tooltip {
     color: @yellow;
 }
 
-#custom-swaync{
+/*#custom-swaync{
     color: @textColor;
-}
+}*/
 
     /*#ffd700;}*/
 
+#custom-appmenu,
 #custom-power {
-    color: @moduleBackground;
-    background-color: @textColor;
+    color: @darkTextColor; /*moduleBackground;*/
+    background-color: @transparent; /*#2d0808;*/
     border-radius: 10px;
-    border-color: @moduleBackground;
+    border-color: @darkTextColor; /*@moduleBackground;*/
     border-width: 1px;
     border-style: solid;
+}
+#custom-power {
     padding-left: 5px;
     padding-right: 6px;
     margin-right: 8px;
 }
 #custom-appmenu {
-    color: @moduleBackground;
-    background-color: @textColor;
-    border-radius: 10px;
-    border-color: @moduleBackground;
-    border-width: 1px;
-    border-style: solid;
     padding-left: 12px;
     padding-right: 13px;
     margin-left: 8px;
 }
 #custom-power:hover,
 #custom-appmenu:hover {
-    color: @textColor;
-    background-color: @moduleBackground;
-    border-color: @textColor;
+    color: @moduleBackground;
+    background-color: @darkTextColor;
+    border-color: @moduleBackground;
     border-width: 1px;
     border-style: solid;
+}
+#tray,
+#window {
+    color: @darkTextColor;
 }
