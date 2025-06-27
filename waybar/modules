@@ -22,8 +22,9 @@
         "on-click": "activate",
         "active-only": false,
         "all-outputs": true,
-        "format": "{icon} {windows}",
-        "format-window-separator": " ",
+        //"format": "{icon} {windows}",
+        "format": "{icon}",
+        "format-window-separator": "",
         //"format-icons": {
         //  "urgent": "",
         //  "active": "",

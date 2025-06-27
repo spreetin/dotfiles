@@ -13,7 +13,7 @@
 @define-color lightgray  	#686868;
 @define-color darkgray   	#353535;
 
-@define-color transparent	rgba(1, 1, 1, 0.5);
+@define-color transparent	rgba(11, 11, 11, 0.8);
 @define-color teal-trans	rgba(1, 117, 84, 0.5);
 @define-color cyan			rgba(53, 140, 169, 1);
 
@@ -32,19 +32,23 @@
 @define-color textcolor2 #FFFFFF;
 @define-color textcolor3 #FFFFFF;
 @define-color iconcolor #FFFFFF;
+@define-color textColor #bbb;
+@define-color borderColor #ddd;
+@define-color workspaceBackground #bbb;
 
 /*@define-color textColor #ddb8b8;*/ /*#cba6a6; #ed8888;*/
 /*@define-color darkTextColor #ad5858;
 @define-color moduleBackground rgba(33, 16, 34, 0.8);*/
-@define-color textColor #9090e0;
+/*@define-color textColor #9090e0;
 @define-color darkTextColor #66f;
-@define-color moduleBack1 rgba(30, 30, 80, 0.9);
-@define-color moduleBack2 rgba(0, 0, 20, 0.8);
+@define-color moduleBack1 rgba(30, 30, 80, 0.8);
+@define-color moduleBack2 rgba(0, 0, 20, 0.9);
 @define-color moduleBack3 rgba(0, 0, 0, 0.1);
-@define-color moduleBackground @moduleBack2;
+@define-color moduleBackground @moduleBack2;*/
 
-@import 'wallust/colors-waybar.css';
+/*@import 'wallust/colors-waybar.css';
 @import "latte.css";
+@import "colors.css";*/
 
 * {
     font-family: "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
@@ -53,8 +57,14 @@
 }
 
 window#waybar {
-    background-color: transparent;
+    background-color: @transparent;/*transparent;*/
     border-radius: 6px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: @borderColor; /*#1e1e2e;*/
+    margin-top: 3px;
+    margin-left: 5px;
+    margin-right: 5px;
 	padding-top: 2px;
 	padding-bottom: 0px;
 	padding-right: 4px;
@@ -75,8 +85,8 @@ tooltip {
     padding: 0px 3px;
     margin: 3px 2px;
     border-radius: 4px;
-    color: @darkTextColor;
-    background-color: @workspacesbackground2;
+    color: @transparent;
+    background-color: @workspaceBackground;
     transition: all 0.1s linear;
     opacity: 0.4;
 }
@@ -114,28 +124,28 @@ tooltip {
 /*-----module groups----*/
 .modules-left {
     /*background-color: @moduleBackground;*/
-    background: linear-gradient(0deg, @moduleBack3 0%, @moduleBack2 10%, @moduleBack1 100%);
+    /*background: linear-gradient(0deg, @moduleBack3 0%, @moduleBack2 15%, @moduleBack1 100%);*/
     border-radius: 0px 0px 20px 0px;
-    padding-top: 2px;
-    padding-bottom: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     padding-right: 10px;
 }
 .modules-right {
     /*background-color: transparent;*/
     /*background-color: @moduleBackground;*/
-    background: linear-gradient(0deg, @moduleBack3 0%, @moduleBack2 10%, @moduleBack1 100%);
+    /*background: linear-gradient(0deg, @moduleBack3 0%, @moduleBack2 15%, @moduleBack1 100%);*/
     border-radius: 0px 0px 0px 20px;
-    padding-top: 2px;
-    padding-bottom: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     padding-left: 10px;
 }
 
 .modules-center {
     /*background-color: @moduleBackground;*/
-    background: linear-gradient(0deg, @moduleBack3 0%, @moduleBack2 10%, @moduleBack1 100%);
+    /*background: linear-gradient(0deg, @moduleBack3 0%, @moduleBack2 15%, @moduleBack1 100%);*/
     border-radius: 0px 0px 20px 20px;
-	padding-top: 2px;
-	padding-bottom: 5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
 	padding-left: 10px;
 	padding-right: 6px;
 }
@@ -321,12 +331,12 @@ tooltip {
 
 #custom-appmenu,
 #custom-power {
-    color: @darkTextColor; /*moduleBackground;*/
-    background-color: @transparent; /*#2d0808;*/
-    border-radius: 10px;
-    border-color: @darkTextColor; /*@moduleBackground;*/
-    border-width: 1px;
-    border-style: solid;
+    color: @textColor; /*moduleBackground;*/
+    /*background-color: @transparent;*/ /*#2d0808;*/
+    /*border-radius: 10px;*/
+    /*border-color: @darkTextColor;*/ /*@moduleBackground;*/
+    /*border-width: 1px;
+    border-style: solid;*/
 }
 #custom-power {
     padding-left: 5px;
@@ -340,11 +350,12 @@ tooltip {
 }
 #custom-power:hover,
 #custom-appmenu:hover {
-    color: @moduleBackground;
-    background-color: @darkTextColor;
-    border-color: @moduleBackground;
-    border-width: 1px;
+    color: @transparent;
+    background-color: @borderColor;
+    border-color: @transparent;
+    border-width: 0px;
     border-style: solid;
+    border-radius: 5px;
 }
 #tray,
 #window {
