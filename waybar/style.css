@@ -13,7 +13,7 @@
 @define-color lightgray  	#686868;
 @define-color darkgray   	#353535;
 
-@define-color transparent	rgba(11, 11, 11, 0.8);
+@define-color transparent	rgba(11, 11, 11, 0.9);
 @define-color teal-trans	rgba(1, 117, 84, 0.5);
 @define-color cyan			rgba(53, 140, 169, 1);
 
@@ -58,10 +58,10 @@
 
 window#waybar {
     background-color: @transparent;/*transparent;*/
-    border-radius: 6px;
-    border-width: 2px;
+    /*border-radius: 6px;
+    border-width: 0px;
     border-style: solid;
-    border-color: @borderColor; /*#1e1e2e;*/
+    border-color: @borderColor;*/ /*#1e1e2e;*/
     margin-top: 3px;
     margin-left: 5px;
     margin-right: 5px;
