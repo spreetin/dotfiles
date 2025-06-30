@@ -8,37 +8,37 @@
         source = ../hypr;
         recursive = true;
         executable = true;
-    }
+    };
     home.file.".config/waybar" = {
         source = ../waybar;
         recursive = true;
         executable = true;
-    }
+    };
     home.file.".config/kitty" = {
         source = ../kitty;
         recursive = true;
         executable = true;
-    }
+    };
     home.file.".config/neovim" = {
         source = ../neovim;
         recursive = true;
         executable = true;
-    }
+    };
     home.file.".oh-my-zsh/custom" = {
         source = ../oh-my-zsh/custom;
         recursive = true;
         executable = true;
-    }
+    };
     home.file.".config/wlogout" = {
         source = ../wlogout;
         recursive = true;
         executable = true;
-    }
+    };
     home.file.".config/zsh" = {
         source = ../zsh;
         recursive = true;
         executable = true;
-    }
+    };
 
     home.packages = with pkgs; [
         btop
@@ -70,10 +70,9 @@
             enable = true;
             userName = "David Falk";
             userEmail = "spreetin@protonmail.com";
-        }
+        };
         zsh = {
             enable = true;
-        }
-
+        };
     };
 }

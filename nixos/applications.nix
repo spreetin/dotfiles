@@ -18,7 +18,6 @@
     nm-applet.indicator = true;
     virt-manager.enable = true;
     xwayland.enable = true;
-    home-manager.enable = true;
 
     gnupg.agent = {
       enable = true;
