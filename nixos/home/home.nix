@@ -3,41 +3,40 @@
 {
     home.username = "david";
     home.homeDirectory = "/home/david";
+    home.stateVersion = "25.05";
 
     home.file.".config/hypr" = {
-        source = ../hypr;
+        source = ../../hypr;
         recursive = true;
         executable = true;
     };
     home.file.".config/waybar" = {
-        source = ../waybar;
+        source = ../../waybar;
         recursive = true;
         executable = true;
     };
     home.file.".config/kitty" = {
-        source = ../kitty;
+        source = ../../kitty;
         recursive = true;
         executable = true;
     };
-    home.file.".config/neovim" = {
-        source = ../neovim;
+    home.file.".config/nvim" = {
+        source = ../../neovim;
         recursive = true;
         executable = true;
     };
     home.file.".oh-my-zsh/custom" = {
-        source = ../oh-my-zsh/custom;
+        source = ../../oh-my-zsh/custom;
         recursive = true;
         executable = true;
     };
     home.file.".config/wlogout" = {
-        source = ../wlogout;
+        source = ../../wlogout;
         recursive = true;
         executable = true;
     };
-    home.file.".config/zsh" = {
-        source = ../zsh;
-        recursive = true;
-        executable = true;
+    home.file.".zshrc" = {
+        source = ../../zsh/.zshrc;
     };
 
     home.packages = with pkgs; [
@@ -49,7 +48,7 @@
         gnused
         gnutar
         iftop
-        iotop
+	iotop
         lm_sensors
         lsof
         neofetch

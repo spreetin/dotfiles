@@ -6,6 +6,6 @@
     ];
 
     home.file.".config/hypr/local/local.conf" = {
-        source = ../hypr_host/meitner.conf;
+	source = ../../hypr_host/meitner.conf;
     };
 }
