@@ -37,35 +37,28 @@
       enable = true;
       plugins = with pkgs.xfce; [
         mousepad
-	tumbler
+        tumbler
         thunar-archive-plugin
-	thunar-volman
-	thunar-vcs-plugin
-	thunar-media-tags-plugin
+        thunar-volman
+        thunar-vcs-plugin
+        thunar-media-tags-plugin
       ];
     };
   };
 
   environment.systemPackages = with pkgs; [
     baobab
-    bash-language-server
     bc
     blueman
     brightnessctl
-    cmake-language-server
-    copilot-language-server
     cpufrequtils
-    discord
     dnsmasq
-    docker-language-server
-    ffmpeg
-    filezilla
+    dosfstools
     findutils
     gcc
-    gimp3-with-plugins
-    git
+    gdb
     glib
-    haskell-language-server
+    gparted
     hunspell
     hunspellDicts.de_DE
     hunspellDicts.en_GB-ise
@@ -74,42 +67,32 @@
     hyphenDicts.de_DE
     hyphenDicts.en_US
     hyprls
-    hyprpaper
     imagemagick
     killall
     kitty
-    lua-language-server
     libappindicator
     libnotify
     libreoffice
-    librewolf
     lshw
     lua
-    lutris
-    mpv
     networkmanagerapplet
+    nfs-utils
+    ntfs3g
     openssl
     pamixer
     pavucontrol
     pciutils
     playerctl
-    rofi
+    rofi-wayland
     rsync
-    spotify
+    screen
     swaynotificationcenter
     swww
-    unzip
-    waybar
-    wget
-    wine
-    winetricks
+    vulkan-tools
     wl-clipboard
     wlogout
+    xdg-desktop-portal-hyprland
     xdg-user-dirs
     xdg-utils
-    yaml-language-server
-    yt-dlp
-    zoom-us
-    zsh
   ];
 }

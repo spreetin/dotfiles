@@ -40,28 +40,77 @@
     };
 
     home.packages = with pkgs; [
+        anki
+        bash-language-server
+        bitwarden-desktop
         btop
+        calibre
+        cava
+        cliphist
+        cloc
+        cmake-language-server
+        copilot-language-server
+        cppcheck
         dnsutils
+        docker-language-server
+        discord
+        electron
+        ffmpeg
         file
+        filezilla
         fzf
+        gimp3-with-plugins
         gnupg
         gnused
         gnutar
+        haskell-language-server
+        hyprpaper
+        hyprpicker
+        hyprshot
         iftop
-	iotop
+	    iotop
+        jq
+        lazygit
+        librewolf
         lm_sensors
         lsof
+        lua-language-server
+        lutris
         neofetch
         nix-output-monitor
         nmap
+        nvtopPackages.full
+        nwg-displays
+        mc
+        mpv
+        mpvScripts.mpris
+        obs-studio
         oh-my-zsh
         p7zip
         pciutils
+        protonvpn-gui
+        protonup-qt
+        signal-desktop
+        sshfs
+        slurp
+        solaar
+        spotify
+        swappy
+        texstudio
+        traceroute
         unzip
         usbutils
+        vlc
+        wget
+        wine
+        winetricks
+        wireguard-tools
         which
         xz
+        yaml-language-server
+        yt-dlp
         zip
+        zoom-us
     ];
 
     programs = {
