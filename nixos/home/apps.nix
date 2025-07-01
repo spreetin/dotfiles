@@ -82,16 +82,6 @@
         yt-dlp
         zip
         zoom-us
+        zsh-syntax-highlighting
     ];
-
-    programs = {
-        git = {
-            enable = true;
-            userName = "David Falk";
-            userEmail = "spreetin@protonmail.com";
-        };
-        #xdg = {
-        #    enable = true;
-        #};
-    };
 }

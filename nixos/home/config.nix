@@ -34,7 +34,27 @@
         recursive = true;
         executable = true;
     };
-    home.file.".zshrc" = {
-        source = ../../zsh/.zshrc;
+
+    programs = {
+        git = {
+            enable = true;
+            userName = "David Falk";
+            userEmail = "spreetin@protonmail.com";
+        };
+        zsh = {
+            enable = true;
+            syntaxHighlighting.enable = true;
+            oh-my-zsh = {
+                enable = true;
+                theme = "af-magic";
+                plugins = [
+                    "git"
+                    "ssh"
+                ];
+            };
+            shellAliases = {
+                rebuild = "sudo nixos-rebuild switch --flake /home/david/dotfiles/";
+            };
+        };
     };
 }
