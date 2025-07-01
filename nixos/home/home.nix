@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+    #imports = [
+    #    .apps/kitty.nix
+    #];
+
     home.username = "david";
     home.homeDirectory = "/home/david";
     home.stateVersion = "25.05";
@@ -85,7 +89,11 @@
         mpv
         mpvScripts.mpris
         obs-studio
+        obs-studio-plugins.obs-mute-filter
+        obs-studio-plugins.obs-pipewire-audio-capture
         oh-my-zsh
+        openmw
+        openttd
         p7zip
         pciutils
         protonvpn-gui
@@ -97,6 +105,7 @@
         spotify
         swappy
         texstudio
+        tldr
         traceroute
         unzip
         usbutils

@@ -76,6 +76,7 @@
     lshw
     lua
     networkmanagerapplet
+    nh
     nfs-utils
     ntfs3g
     openssl

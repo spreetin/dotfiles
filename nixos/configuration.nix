@@ -163,10 +163,9 @@
     isNormalUser = true;
     description = "David Falk";
     extraGroups = [ "networkmanager" "wheel" "video" "users" "libvirtd" ];
-    packages = with pkgs; [
-      kdePackages.kate
-      openttd openttd-ttf
-    ];
+    #packages = with pkgs; [
+    #  openttd openttd-ttf
+    #];
   };
 
   environment = {
@@ -179,6 +178,7 @@
     packages = with pkgs; [
       font-awesome fira roboto liberation_ttf
       nerd-fonts.liberation nerd-fonts.jetbrains-mono nerd-fonts.symbols-only
+      openttd-ttf
     ];
     fontDir.enable = true;
   };
