@@ -5,6 +5,8 @@
     #    .apps/kitty.nix
     #];
 
+    xdg.enable = true;
+
     home.username = "david";
     home.homeDirectory = "/home/david";
     home.stateVersion = "25.05";
@@ -128,5 +130,8 @@
             userName = "David Falk";
             userEmail = "spreetin@protonmail.com";
         };
+        #xdg = {
+        #    enable = true;
+        #};
     };
 }

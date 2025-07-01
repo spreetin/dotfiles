@@ -17,8 +17,16 @@
         nm-applet.indicator = true;
         virt-manager.enable = true;
         xwayland.enable = true;
-        zsh.enable = true;
 
+        zsh = {
+            enable = true;
+            ohMyZsh = {
+                theme = "robbyrussel";
+                plugins = [
+                    "sudo"
+                ];
+            };
+        };
         gnupg.agent = {
             enable = true;
             enableSSHSupport = true;

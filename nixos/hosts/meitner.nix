@@ -1,13 +1,24 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-    networking.hostName = "meitner";
+    networking = {
+        hostName = "meitner";
+        hostId = "fcfbd6fb";
+    };
 
-    boot.initrd.kernelModules = [ "amdgpu" ];
+    boot = {
+        initrd.kernelModules = [ "amdgpu" ];
+        zfs.extraPools = [ "storage" ];
+    };
 
     hardware.graphics = {
         enable = true;
         enable32Bit = true;
+        extraPackages = with pkgs;  [
+            rocmPackages.clr.icd
+            amdvlk
+            driversi686Linux.amdvlk
+        ];
     };
 
     services.xserver.videoDrivers = [ "amdgpu" ];
@@ -19,12 +30,6 @@
         packages = with pkgs; [ lact ];
         services.lactd.wantedBy = [ "multi-user.target" ];
     };
-
-    hardware.graphics.extraPackages = with pkgs; [
-        rocmPackages.clr.icd;
-        amdvlk
-        driversi686Linux.amdvlk
-    ];
 
     environment.systemPackages = with pkgs; [
         lact

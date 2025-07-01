@@ -72,7 +72,7 @@ window#waybar {
 }
 
 tooltip {
-    background: @moduleBackground; /*#1e1e2e;*/
+    background: @transparent; /*#1e1e2e;*/
     border-radius: 12px;
     border-width: 1px;
     border-style: solid;
