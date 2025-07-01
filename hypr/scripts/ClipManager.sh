@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/urs/bin/env bash
 # /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
 # Clipboard Manager. This script uses cliphist, rofi, and wl-copy.
 
@@ -10,8 +10,8 @@ msg='👀 **note**  CTRL DEL = cliphist del (entry)   or   ALT DEL - cliphist wi
 # ALT Del to wipe clipboard contents
 
 # Check if rofi is already running
-if pidof rofi > /dev/null; then
-  pkill rofi
+if pidof rofi >/dev/null; then
+    pkill rofi
 fi
 
 while true; do
@@ -19,31 +19,30 @@ while true; do
         rofi -i -dmenu \
             -kb-custom-1 "Control-Delete" \
             -kb-custom-2 "Alt-Delete" \
-            -config $rofi_theme < <(cliphist list) \
-			-mesg "$msg" 
+            -config $rofi_theme \
+            -mesg "$msg" < <(cliphist list)
     )
 
     case "$?" in
-        1)
+    1)
+        exit
+        ;;
+    0)
+        case "$result" in
+        "")
+            continue
+            ;;
+        *)
+            cliphist decode <<<"$result" | wl-copy
             exit
             ;;
-        0)
-            case "$result" in
-                "")
-                    continue
-                    ;;
-                *)
-                    cliphist decode <<<"$result" | wl-copy
-                    exit
-                    ;;
-            esac
-            ;;
-        10)
-            cliphist delete <<<"$result"
-            ;;
-        11)
-            cliphist wipe
-            ;;
+        esac
+        ;;
+    10)
+        cliphist delete <<<"$result"
+        ;;
+    11)
+        cliphist wipe
+        ;;
     esac
 done
-

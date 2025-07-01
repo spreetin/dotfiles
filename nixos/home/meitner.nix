@@ -8,4 +8,8 @@
     home.file.".config/hypr/local/local.conf" = {
 	source = ../../hypr_host/meitner.conf;
     };
+
+    home.packages = with pkgs; [
+        polychromatic
+    ];
 }

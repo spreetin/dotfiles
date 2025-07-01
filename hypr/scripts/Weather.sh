@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
 # weather info from wttr. https://github.com/chubin/wttr.in
-# Remember to add city 
+# Remember to add city
 
 city=
 cachedir="$HOME/.cache/rbn"
@@ -23,9 +23,9 @@ IFS=$'\n'
 cacheage=$(($(date +%s) - $(stat -c '%Y' "$cachedir/$cachefile")))
 if [ $cacheage -gt 1740 ] || [ ! -s $cachedir/$cachefile ]; then
     data=($(curl -s https://en.wttr.in/"$city"$1\?0qnT 2>&1))
-    echo ${data[0]} | cut -f1 -d, > $cachedir/$cachefile
-    echo ${data[1]} | sed -E 's/^.{15}//' >> $cachedir/$cachefile
-    echo ${data[2]} | sed -E 's/^.{15}//' >> $cachedir/$cachefile
+    echo ${data[0]} | cut -f1 -d, >$cachedir/$cachefile
+    echo ${data[1]} | sed -E 's/^.{15}//' >>$cachedir/$cachefile
+    echo ${data[2]} | sed -E 's/^.{15}//' >>$cachedir/$cachefile
 fi
 
 weather=($(cat $cachedir/$cachefile))
@@ -84,4 +84,5 @@ echo -e "{\"text\":\""$temperature $condition"\", \"alt\":\""${weather[0]}"\", \
 
 cached_weather=" $temperature  \n$condition ${weather[1]}"
 
-echo -e $cached_weather >  "$HOME/.cache/.weather_cache"
+echo -e $cached_weather >"$HOME/.cache/.weather_cache"
+

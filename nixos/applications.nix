@@ -56,6 +56,7 @@
 
     environment.systemPackages = with pkgs; [
         baobab
+        bash
         bc
         blueman
         brightnessctl
@@ -67,6 +68,7 @@
         gdb
         glib
         gparted
+        gptfdisk
         hunspell
         hunspellDicts.de_DE
         hunspellDicts.en_GB-ise

@@ -82,6 +82,7 @@
         lsof
         lua-language-server
         lutris
+        ncdu
         neofetch
         nix-output-monitor
         nmap

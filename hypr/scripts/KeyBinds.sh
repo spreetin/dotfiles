@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
 # searchable enabled keybinds using rofi
 
@@ -6,8 +6,8 @@
 pkill yad || true
 
 # check if rofi is already running
-if pidof rofi > /dev/null; then
-  pkill rofi
+if pidof rofi >/dev/null; then
+    pkill rofi
 fi
 
 # define the config files
@@ -37,3 +37,4 @@ display_keybinds=$(echo "$keybinds" | sed 's/\$mainMod/SUPER/g')
 
 # use rofi to display the keybinds with the modified content
 echo "$display_keybinds" | rofi -dmenu -i -config "$rofi_theme" -mesg "$msg"
+
