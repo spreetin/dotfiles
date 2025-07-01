@@ -5,201 +5,187 @@
 { config, pkgs, options, ... }:
 
 {
-  imports =
-    [ 
-      ./hardware-configuration.nix
-      ./applications.nix
+    imports = [ 
+        ./hardware-configuration.nix
+        ./applications.nix
     ];
 
-  nix = {
-    settings = {
-      auto-optimise-store = true;
-      experimental-features = ["nix-command" "flakes"];
-      substituters = [ "https://hyprland.cachix.org" ];
-      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
-      download-buffer-size = 524288000;
+    nix = {
+        settings = {
+            auto-optimise-store = true;
+            experimental-features = ["nix-command" "flakes"];
+            substituters = [ "https://hyprland.cachix.org" ];
+            trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+            download-buffer-size = 524288000;
+        };
+        gc = {
+            automatic = true;
+            dates = "daily";
+            options = "--delete-older-than 7d";
+        };
     };
-    gc = {
-      automatic = true;
-      dates = "daily";
-      options = "--delete-older-than 7d";
-    };
-  };
 
-  boot = {
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
+    boot = {
+        loader = {
+            systemd-boot.enable = true;
+            efi.canTouchEfiVariables = true;
+        };
+        kernelPackages = pkgs.linuxPackages_latest;
     };
-    kernelPackages = pkgs.linuxPackages_latest;
-  };
 
-  hardware = {
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-      settings = {
-        General = {
-	  Enable = "Source,Sink,Media,Socket";
-	  Experimental = true;
-	};
-      };
+    hardware = {
+        bluetooth = {
+            enable = true;
+            powerOnBoot = true;
+            settings = {
+                General = {
+                    Enable = "Source,Sink,Media,Socket";
+                    Experimental = true;
+                };
+            };
+        };
     };
-  };
 
-  networking = {
-    hostName = "chandrasekhar";
-    networkmanager = {
-      enable = true;
+    networking = {
+        hostName = "chandrasekhar";
+        networkmanager = {
+            enable = true;
+        };
+        extraHosts = ''
+            192.168.0.105 meitner
+            192.168.0.106 servus
+        '';
+        firewall = {
+            allowedUDPPorts = [
+                5353
+            ];
+        };
+        timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
     };
-    extraHosts = ''
-      192.168.0.105 meitner
-      192.168.0.106 servus
-    '';
-    firewall = {
-      allowedUDPPorts = [
-        5353
-      ];
+
+    virtualisation = {
+        libvirtd = {
+            enable = true;
+            qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
+        };
+        spiceUSBRedirection.enable = true;
     };
-    timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
-  };
 
-  virtualisation = {
-    libvirtd = {
-      enable = true;
-      qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
+    time.timeZone = "Europe/Stockholm";
+
+    i18n = {
+        defaultLocale = "en_US.UTF-8";
+        extraLocaleSettings = {
+            LC_ADDRESS = "sv_SE.UTF-8";
+            LC_IDENTIFICATION = "sv_SE.UTF-8";
+            LC_MEASUREMENT = "sv_SE.UTF-8";
+            LC_MONETARY = "sv_SE.UTF-8";
+            LC_NAME = "sv_SE.UTF-8";
+            LC_NUMERIC = "sv_SE.UTF-8";
+            LC_PAPER = "sv_SE.UTF-8";
+            LC_TELEPHONE = "sv_SE.UTF-8";
+            LC_TIME = "sv_SE.UTF-8";
+        };
     };
-    spiceUSBRedirection.enable = true;
-  };
 
-  time.timeZone = "Europe/Stockholm";
-
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-    extraLocaleSettings = {
-      LC_ADDRESS = "sv_SE.UTF-8";
-      LC_IDENTIFICATION = "sv_SE.UTF-8";
-      LC_MEASUREMENT = "sv_SE.UTF-8";
-      LC_MONETARY = "sv_SE.UTF-8";
-      LC_NAME = "sv_SE.UTF-8";
-      LC_NUMERIC = "sv_SE.UTF-8";
-      LC_PAPER = "sv_SE.UTF-8";
-      LC_TELEPHONE = "sv_SE.UTF-8";
-      LC_TIME = "sv_SE.UTF-8";
+    services = {
+        displayManager = {
+            sddm = {
+                enable = true;
+	            wayland.enable = true;
+            };
+        };
+        xserver.xkb = {
+            layout = "se";
+            variant = "";
+        };
+        printing.enable = true;
+        pulseaudio.enable = false;
+        pipewire = {
+            enable = true;
+            alsa = {
+                enable = true;
+	            support32Bit = true;
+            };
+            pulse.enable = true;
+            jack.enable = true;
+        };
+        openssh.enable = true;
+        gvfs.enable = true;
+        tumbler.enable = true;
+        flatpak.enable = true;
+        blueman.enable = true;
+        fwupd.enable = true;
+        upower.enable = true;
+        fstrim.enable = true;
+        gnome.gnome-keyring.enable = true;
     };
-  };
 
-  services = {
-    displayManager = {
-      sddm = {
+    systemd.services.flatpak-repo = {
+        path = [ pkgs.flatpak ];
+        script = ''
+            flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+        '';
+    };
+
+    powerManagement = {
         enable = true;
-	wayland.enable = true;
-      };
+        cpuFreqGovernor = "schedutil";
     };
-    xserver.xkb = {
-      layout = "se";
-      variant = "";
+
+    console.keyMap = "sv-latin1";
+
+    security = {
+        rtkit.enable = true;
+        polkit = {
+            enable = true;
+            extraConfig = ''
+                polkit.addRule(function(action, subject) {
+	                if (
+	                subject.isInGroup("users")
+	                && (
+	                    action.id == "org.freedesktop.login1.reboot" ||
+		                action.id == "org.freedesktop.login1.reboot-multiple-sessions" ||
+		                action.id == "org.freedesktop.login1.power-off" ||
+		                action.id == "org.freedesktop.login1.power-off-multiple-sessions"
+	                )
+	                )
+	                {
+	                    return polkit.Result.YES;
+	                }
+	                })
+                '';
+        };
     };
-    printing.enable = true;
-    pulseaudio.enable = false;
-    pipewire = {
-      enable = true;
-      alsa = {
+    #security.rtkit.enable = true;
+
+    users.users.david = {
+        isNormalUser = true;
+        description = "David Falk";
+        extraGroups = [ "networkmanager" "wheel" "video" "users" "libvirtd" ];
+    };
+
+    environment = {
+        sessionVariables = {
+            NIXOS_OZONE_WL = "1";
+        };
+    };
+
+    fonts = {
+        packages = with pkgs; [
+            font-awesome fira roboto liberation_ttf
+            nerd-fonts.liberation nerd-fonts.jetbrains-mono nerd-fonts.symbols-only
+            openttd-ttf
+        ];
+        fontDir.enable = true;
+    };
+
+    system = {
+        stateVersion = "25.05";
+    };
+
+    xdg.portal = {
         enable = true;
-	support32Bit = true;
-      };
-      pulse.enable = true;
-      jack.enable = true;
+        wlr.enable = true;
     };
-    openssh.enable = true;
-    gvfs.enable = true;
-    tumbler.enable = true;
-    flatpak.enable = true;
-    blueman.enable = true;
-    fwupd.enable = true;
-    upower.enable = true;
-    gnome.gnome-keyring.enable = true;
-  };
-
-  systemd.services.flatpak-repo = {
-    path = [ pkgs.flatpak ];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
-  };
-
-  powerManagement = {
-    enable = true;
-    cpuFreqGovernor = "schedutil";
-  };
-
-  console.keyMap = "sv-latin1";
-
-  security = {
-    rtkit.enable = true;
-    polkit = {
-      enable = true;
-      extraConfig = ''
-        polkit.addRule(function(action, subject) {
-	  if (
-	    subject.isInGroup("users")
-	      && (
-	        action.id == "org.freedesktop.login1.reboot" ||
-		action.id == "org.freedesktop.login1.reboot-multiple-sessions" ||
-		action.id == "org.freedesktop.login1.power-off" ||
-		action.id == "org.freedesktop.login1.power-off-multiple-sessions"
-	      )
-	    )
-	  {
-	    return polkit.Result.YES;
-	  }
-	})
-      '';
-    };
-  };
-  #security.rtkit.enable = true;
-
-  users.users.david = {
-    isNormalUser = true;
-    description = "David Falk";
-    extraGroups = [ "networkmanager" "wheel" "video" "users" "libvirtd" ];
-    #packages = with pkgs; [
-    #  openttd openttd-ttf
-    #];
-  };
-
-  environment = {
-    sessionVariables = {
-      NIXOS_OZONE_WL = "1";
-    };
-  };
-
-  fonts = {
-    packages = with pkgs; [
-      font-awesome fira roboto liberation_ttf
-      nerd-fonts.liberation nerd-fonts.jetbrains-mono nerd-fonts.symbols-only
-      openttd-ttf
-    ];
-    fontDir.enable = true;
-  };
-
-  system = {
-    stateVersion = "25.05";
-    #autoUpgrade = {
-    #  enable = true;
-    #  flake = inputs.self.outPath;
-    #  flags = [
-    #    "--update-input"
-    #    "nixpkgs"
-    #    "-L"
-    #  ];
-    #  dates = "02:00";
-    #  randomizeDelaySec = "45min";
-    #};
-  };
-
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-  };
 }
