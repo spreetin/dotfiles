@@ -3,6 +3,8 @@
 {
     imports = [
         ./home.nix
+        ./chandrasekhar/apps.nix
+        ./chandrasekhar/configs.nix
     ];
 
     home.file.".config/hypr/local/local.conf" = {
