@@ -163,6 +163,7 @@
         isNormalUser = true;
         description = "David Falk";
         extraGroups = [ "networkmanager" "wheel" "video" "users" "libvirtd" ];
+        shell = zsh;
     };
 
     environment = {
