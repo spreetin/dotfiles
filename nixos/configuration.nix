@@ -47,7 +47,6 @@
     };
 
     networking = {
-        hostName = "chandrasekhar";
         networkmanager = {
             enable = true;
         };

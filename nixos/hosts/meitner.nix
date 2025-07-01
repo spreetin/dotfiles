@@ -1,6 +1,8 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
+    networking.hostName = "meitner";
+
     boot.initrd.kernelModules = [ "amdgpu" ];
 
     hardware.graphics = {

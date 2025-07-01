@@ -1,6 +1,8 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
+    networking.hostName = "chandrasekhar";
+
     hardware.graphics = {
         enable = true;
     };

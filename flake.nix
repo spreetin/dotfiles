@@ -40,7 +40,6 @@
                             home-manager.users.david = import ./nixos/home/meitner.nix;
                         }
                     ];
-
                 };
             };
         };
