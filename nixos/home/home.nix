@@ -128,8 +128,5 @@
             userName = "David Falk";
             userEmail = "spreetin@protonmail.com";
         };
-        zsh = {
-            enable = true;
-        };
     };
 }
