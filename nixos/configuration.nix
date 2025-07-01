@@ -6,7 +6,6 @@
 
 {
     imports = [ 
-        ./hardware-configuration.nix
         ./applications.nix
     ];
 
@@ -160,11 +159,17 @@
     };
     #security.rtkit.enable = true;
 
-    users.users.david = {
-        isNormalUser = true;
-        description = "David Falk";
-        extraGroups = [ "networkmanager" "wheel" "video" "users" "libvirtd" ];
-        shell = pkgs.zsh;
+    users = {
+        users.david = {
+            isNormalUser = true;
+            description = "David Falk";
+            extraGroups = [ "networkmanager" "wheel" "video" "users" "libvirtd" "david" ];
+            uid = 1000;
+            shell = pkgs.zsh;
+        };
+        groups = {
+            david.gid = 1000;
+        };
     };
 
     environment = {

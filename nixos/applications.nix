@@ -55,18 +55,25 @@
     };
 
     environment.systemPackages = with pkgs; [
+        autoconf
+        automake
         baobab
         bash
         bc
+        bison
         blueman
         brightnessctl
+        browsh
         cpufrequtils
         dnsmasq
         dosfstools
+        elinks
         findutils
+        flex
         gcc
         gdb
         glib
+        gnumake
         gparted
         gptfdisk
         hunspell
@@ -81,8 +88,10 @@
         killall
         kitty
         libappindicator
+        libiconv
         libnotify
         libreoffice
+        libtool
         lshw
         lua
         networkmanagerapplet
@@ -93,6 +102,7 @@
         pamixer
         pavucontrol
         pciutils
+        pkg-config
         playerctl
         rofi-wayland
         rsync
@@ -100,6 +110,7 @@
         swaynotificationcenter
         swww
         vulkan-tools
+        wireguard-tools
         wl-clipboard
         wlogout
         xdg-desktop-portal-hyprland

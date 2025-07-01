@@ -21,6 +21,7 @@
                     inherit system;
                     modules = [
                         ./nixos/configuration.nix
+                        ./nixos/hosts/chandrasekhar-hardware.nix
                         ./nixos/hosts/chandrasekhar.nix
                         home-manager.nixosModules.home-manager {
                             home-manager.useGlobalPkgs = true;
@@ -33,6 +34,7 @@
                     inherit system;
                     modules = [
                         ./nixos/configuration.nix
+                        ./nixos/hosts/meitner-hardware.nix
                         ./nixos/hosts/meitner.nix
                         home-manager.nixosModules.home-manager {
                             home-manager.useGlobalPkgs = true;
