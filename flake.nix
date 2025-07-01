@@ -20,24 +20,24 @@
                 chandrasekhar = nixpkgs.lib.nixosSystem {
                     inherit system;
                     modules = [
-                        ./configuration.nix
-                        ./hosts/chandrasekhar.nix
+                        ./nixos/configuration.nix
+                        ./nixos/hosts/chandrasekhar.nix
                         home-manager.nixosModules.home-manager {
                             home-manager.useGlobalPkgs = true;
                             home-manager.useUserPackages = true;
-                            home-manager.users.david = import ./home/chandrasekhar.nix;
+                            home-manager.users.david = import ./nixos/home/chandrasekhar.nix;
                         }
                     ];
                 };
                 meitner = nixpkgs.lib.nixosSystem {
                     inherit system;
                     modules = [
-                        ./configuration.nix
-                        ./hosts/meitner.nix
+                        ./nixos/configuration.nix
+                        ./nixos/hosts/meitner.nix
                         home-manager.nixosModules.home-manager {
                             home-manager.useGlobalPkgs = true;
                             home-manager.useUserPackages = true;
-                            home-manager.users.david = import ./home/meitner.nix;
+                            home-manager.users.david = import ./nixos/home/meitner.nix;
                         }
                     ];
 
