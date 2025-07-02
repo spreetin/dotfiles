@@ -20,7 +20,7 @@
         };
     };
 
-    outputs = { self, nixpkgs, home-manager, hyprland, Hyprspace, hyprfocus }: 
+    outputs = { self, nixpkgs, home-manager, hyprland, Hyprspace, hyprfocus, ... }: 
         let
             system = "x86_64-linux";
             pkgs = nixpkgs.legacyPackages.${system};

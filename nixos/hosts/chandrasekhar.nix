@@ -2,6 +2,7 @@
 
 {
     networking.hostName = "chandrasekhar";
+    networking.hostId = "2bbbd2df";
 
     hardware.graphics = {
         enable = true;
