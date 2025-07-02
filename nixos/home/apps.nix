@@ -5,6 +5,7 @@
         anki
         bash-language-server
         bitwarden-desktop
+        bottles
         btop
         calibre
         cava
@@ -54,11 +55,14 @@
         obs-studio-plugins.obs-pipewire-audio-capture
         oh-my-zsh
         openmw
+        openrgb-with-all-plugins
         openttd
         p7zip
         pciutils
+        protonplus
         protonvpn-gui
         protonup-qt
+        ripgrep
         rose-pine-hyprcursor
         signal-desktop
         sshfs
