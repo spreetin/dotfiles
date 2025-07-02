@@ -1,20 +1,17 @@
-{ inputs, config, pkgs, hyprland, Hyprspace, hyprfocus, ... }:
+{ pkgs, inputs }:
+
+{ config, pkgs, ... }:
 
 {
+    imports = [ inputs.ags.homeManagerModules.default ];
+
     xdg.enable = true;
 
     home.username = "david";
     home.homeDirectory = "/home/david";
     home.stateVersion = "25.05";
 
-    #home.file.".config/hypr" = {
-    #    source = ../../hypr;
-    #    recursive = true;
-    #    executable = true;
-    #};
-
     # Hyprland
-    #home.file.".config/hypr/hyprland.conf".source = ../../hypr/hyprland.conf;
     home.file.".config/hypr/configs".source = ../../hypr/configs;
     home.file.".config/hypr/scripts" = {
         source = ../../hypr/scripts;
@@ -23,6 +20,8 @@
     home.file."config/hypr/wallpaper".source = ../../hypr/wallpaper;
     home.file.".config/hypr/hyprpaper.conf".source = ../../hypr/hyprpaper.conf;
     home.file.".config/hypr/hyprlock.conf".source = ../../hypr/hyprlock.conf;
+    home.file.".config/hypr/wallust".source = ../../hypr/wallust;
+    home.file.".config/hypr/hypridle.conf".source = ../../hypr/hypridle.conf;
 
     # Waybar
     home.file.".config/waybar" = {
@@ -47,6 +46,7 @@
         recursive = true;
         executable = true;
     };
+    home.file.".config/ags".source = ../../ags;
 
     programs = {
         git = {
@@ -69,13 +69,39 @@
                 rebuild = "sudo nixos-rebuild switch --flake /home/david/dotfiles/";
             };
         };
+        ags = {
+            enable = true;
+            extraPackages = with pkgs; [
+                inputs.astal.packages.${pkgs.system}.battery
+                fzf
+            ];
+        };
+    };
+
+    gtk = {
+        enable = true;
+
+        theme = {
+            package = pkgs.flat-remix-gtk;
+            name = "Flat-Remix-GTK-Grey-Darkest";
+        };
+
+        iconTheme = {
+            package = pkgs.adwaita-icon-theme;
+            name = "Adwaita";
+        };
+
+        font = {
+            name = "Sans";
+            size = 12;
+        };
     };
 
     wayland.windowManager.hyprland = {
         enable = true;
         plugins = [
-            inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-            inputs.hyprfocus.packages.${pkgs.system}.default
+            #inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+            #inputs.hyprfocus.packages.${pkgs.system}.default
         ];
         settings = {
             source = [

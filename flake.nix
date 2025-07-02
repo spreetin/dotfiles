@@ -14,13 +14,11 @@
             url = "github:KZDKM/Hyprspace";
             inputs.hyprland.follows = "hyprland";
         };
-        hyprfocus = {
-            url = "github:pyt0xic/hyprfocus";
-            inputs.hyprland.follows = "hyprland";
-        };
+        astal.url = "github:aylur/astal";
+        ags.url = "github:aylur/ags";
     };
 
-    outputs = { self, nixpkgs, home-manager, hyprland, Hyprspace, hyprfocus, ... }: 
+    outputs = { self, nixpkgs, home-manager, hyprland, Hyprspace, ... }@inputs: 
         let
             system = "x86_64-linux";
             pkgs = nixpkgs.legacyPackages.${system};
@@ -30,12 +28,12 @@
                     inherit system;
                     modules = [
                         ./nixos/configuration.nix
-                        ./nixos/hosts/chandrasekhar-hardware.nix
                         ./nixos/hosts/chandrasekhar.nix
                         home-manager.nixosModules.home-manager {
                             home-manager.useGlobalPkgs = true;
                             home-manager.useUserPackages = true;
-                            home-manager.users.david = import ./nixos/home/chandrasekhar.nix;
+                            home-manager.backupFileExtension = "backup";
+                            home-manager.users.david = import ./nixos/home/chandrasekhar.nix { inherit pkgs inputs; };
                         }
                     ];
                 };
@@ -43,12 +41,12 @@
                     inherit system;
                     modules = [
                         ./nixos/configuration.nix
-                        ./nixos/hosts/meitner-hardware.nix
                         ./nixos/hosts/meitner.nix
                         home-manager.nixosModules.home-manager {
                             home-manager.useGlobalPkgs = true;
                             home-manager.useUserPackages = true;
-                            home-manager.users.david = import ./nixos/home/meitner.nix;
+                            home-manager.backupFileExtension = "backup";
+                            home-manager.users.david = import ./nixos/home/meitner.nix { inherit pkgs inputs; };
                         }
                     ];
                 };

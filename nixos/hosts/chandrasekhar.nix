@@ -1,6 +1,9 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
+    imports = [
+        ./chandrasekhar-hardware.nix
+    ];
     networking.hostName = "chandrasekhar";
     networking.hostId = "2bbbd2df";
 

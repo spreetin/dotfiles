@@ -1,6 +1,9 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
+    imports = [
+        ./meitner-hardware.nix
+    ];
     networking = {
         hostName = "meitner";
         hostId = "fcfbd6fb";

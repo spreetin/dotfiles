@@ -2,6 +2,7 @@
 
 {
    home.packages = with pkgs; [
+        adwaita-icon-theme
         anki
         bash-language-server
         bitwarden-desktop

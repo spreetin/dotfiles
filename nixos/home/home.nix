@@ -1,8 +1,10 @@
+{ pkgs, inputs }:
+
 { config, pkgs, ... }:
 
 {
     imports = [
-        ./config.nix
+        (import ./config.nix { inherit pkgs inputs; })
         ./apps.nix
     ];
 }
