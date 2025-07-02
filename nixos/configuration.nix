@@ -119,6 +119,10 @@
         upower.enable = true;
         fstrim.enable = true;
         gnome.gnome-keyring.enable = true;
+        
+        hardware = {
+            openrgb.enable = true;
+        };
     };
 
     systemd.services.flatpak-repo = {
