@@ -9,9 +9,18 @@
             url = "github:nix-community/home-manager/master";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        hyprland.url = "github:hyprwm/Hyprland";
+        Hyprspace = {
+            url = "github:KZDKM/Hyprspace";
+            inputs.hyprland.follows = "hyprland";
+        };
+        hyprfocus = {
+            url = "github:pyt0xic/hyprfocus";
+            inputs.hyprland.follows = "hyprland";
+        };
     };
 
-    outputs = { self, nixpkgs, home-manager }: 
+    outputs = { self, nixpkgs, home-manager, hyprland, Hyprspace, hyprfocus }: 
         let
             system = "x86_64-linux";
             pkgs = nixpkgs.legacyPackages.${system};

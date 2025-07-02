@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
     nixpkgs.config = {
@@ -8,7 +8,11 @@
     programs = {
         firefox.enable = true;
         mtr.enable = true;
-        hyprland.enable = true;
+        hyprland = {
+            enable = true;
+            #package = inputs.hyprland.packages.${pkgs.system}.default;
+            #portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+        };
         xfconf.enable = true;
         gamemode.enable = true;
         waybar.enable = true;

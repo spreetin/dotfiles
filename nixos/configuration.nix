@@ -32,6 +32,7 @@
         kernelPackages = pkgs.linuxPackages_xanmod_latest;
         supportedFilesystems = [ "zfs" "btrfs" ];
         zfs.forceImportRoot = false;
+        tmpOnTmpfs = true;
     };
 
     hardware = {
