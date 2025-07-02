@@ -79,6 +79,7 @@
         "bluetooth",
         "pulseaudio",
         "pulseaudio#microphone",
+        "battery",
         "custom/power",
     ]
 }
