@@ -35,10 +35,10 @@
             enable = true;
             enableSSHSupport = true;
         };
-        neovim = {
-            enable = true;
-            defaultEditor = true;
-        };
+        #neovim = {
+        #    enable = true;
+        #    defaultEditor = true;
+        #};
         steam = {
             enable = true;
             remotePlay.openFirewall = true;
