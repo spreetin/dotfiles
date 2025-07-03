@@ -1,22 +1,25 @@
+{ pkgs, inputs }:
+
 { config, pkgs, ... }:
 
 {
-   home.packages = with pkgs; [
+    imports = [
+        (import ./apps/hyprland.nix { inherit pkgs inputs; })
+        ./apps/zsh.nix
+        (import ./apps/neovim.nix { inherit pkgs inputs; })
+    ];
+
+    home.packages = with pkgs; [
         adwaita-icon-theme
         anki
-        bash-language-server
         bitwarden-desktop
         bottles
         btop
         calibre
         cava
-        cliphist
         cloc
-        cmake-language-server
-        copilot-language-server
         cppcheck
         dnsutils
-        docker-language-server
         dia
         discord
         electron
@@ -25,14 +28,10 @@
         filezilla
         fzf
         gimp3-with-plugins
+        git-crypt
         gnupg
         gnused
         gnutar
-        haskell-language-server
-        hyprcursor
-        hyprpaper
-        hyprpicker
-        hyprshot
         iftop
 	    iotop
         jq
@@ -40,7 +39,6 @@
         librewolf
         lm_sensors
         lsof
-        lua-language-server
         lutris
         ncdu
         neofetch
@@ -54,7 +52,6 @@
         obs-studio
         obs-studio-plugins.obs-mute-filter
         obs-studio-plugins.obs-pipewire-audio-capture
-        oh-my-zsh
         openmw
         openrgb-with-all-plugins
         openttd
@@ -64,7 +61,6 @@
         protonvpn-gui
         protonup-qt
         ripgrep
-        rose-pine-hyprcursor
         signal-desktop
         sshfs
         slurp
@@ -83,10 +79,8 @@
         wireguard-tools
         which
         xz
-        yaml-language-server
         yt-dlp
         zip
         zoom-us
-        zsh-syntax-highlighting
     ];
 }

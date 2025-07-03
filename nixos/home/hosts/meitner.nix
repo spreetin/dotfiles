@@ -4,12 +4,12 @@
 
 {
     imports = [
-        (import ./home.nix { inherit pkgs inputs; })
+        (import ../home.nix { inherit pkgs inputs; })
         ./meitner/apps.nix
         ./meitner/configs.nix
     ];
 
     home.file.".config/hypr/local/local.conf" = {
-	source = ../../hypr_host/meitner.conf;
+	source = ../../../hypr_host/meitner.conf;
     };
 }

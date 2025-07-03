@@ -5,6 +5,6 @@
 {
     imports = [
         (import ./config.nix { inherit pkgs inputs; })
-        ./apps.nix
+        (import ./apps.nix { inherit pkgs inputs; })
     ];
 }

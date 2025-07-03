@@ -4,13 +4,13 @@
 
 {
     imports = [
-        (import ./home.nix { inherit pkgs inputs; })
+        (import ../home.nix { inherit pkgs inputs; })
         ./chandrasekhar/apps.nix
         ./chandrasekhar/configs.nix
     ];
 
     home.file.".config/hypr/local/local.conf" = {
-        source = ../../hypr_host/chandrasekhar.conf;
+        source = ../../../hypr_host/chandrasekhar.conf;
     };
     wayland.windowManager.hyprland = {
         settings = {

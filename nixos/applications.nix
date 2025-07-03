@@ -108,15 +108,10 @@
         pciutils
         pkg-config
         playerctl
-        rofi-wayland
         rsync
         screen
-        swaynotificationcenter
-        swww
         vulkan-tools
         wireguard-tools
-        wl-clipboard
-        wlogout
         xdg-desktop-portal-hyprland
         xdg-user-dirs
         xdg-utils

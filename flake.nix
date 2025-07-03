@@ -16,9 +16,13 @@
         };
         astal.url = "github:aylur/astal";
         ags.url = "github:aylur/ags";
+	LazyVim = {
+	    url = "github:matadaniel/LazyVim-module";
+	    inputs.nixpkgs.follows = "nixpkgs";
+	};
     };
 
-    outputs = { self, nixpkgs, home-manager, hyprland, Hyprspace, ... }@inputs: 
+    outputs = { self, nixpkgs, home-manager, ... }@inputs: 
         let
             system = "x86_64-linux";
             pkgs = nixpkgs.legacyPackages.${system};
@@ -33,7 +37,7 @@
                             home-manager.useGlobalPkgs = true;
                             home-manager.useUserPackages = true;
                             home-manager.backupFileExtension = "backup";
-                            home-manager.users.david = import ./nixos/home/chandrasekhar.nix { inherit pkgs inputs; };
+                            home-manager.users.david = import ./nixos/home/hosts/chandrasekhar.nix { inherit pkgs inputs; };
                         }
                     ];
                 };
@@ -46,7 +50,7 @@
                             home-manager.useGlobalPkgs = true;
                             home-manager.useUserPackages = true;
                             home-manager.backupFileExtension = "backup";
-                            home-manager.users.david = import ./nixos/home/meitner.nix { inherit pkgs inputs; };
+                            home-manager.users.david = import ./nixos/home/hosts/meitner.nix { inherit pkgs inputs; };
                         }
                     ];
                 };
