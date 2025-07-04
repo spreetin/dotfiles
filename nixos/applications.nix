@@ -74,6 +74,7 @@
         gcc
         gdb
         glib
+        glxinfo
         gnumake
         gparted
         gptfdisk

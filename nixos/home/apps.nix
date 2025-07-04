@@ -12,6 +12,7 @@
     home.packages = with pkgs; [
         adwaita-icon-theme
         anki
+        btop
         bitwarden-desktop
         bottles
         btop
@@ -40,6 +41,7 @@
         lm_sensors
         lsof
         lutris
+        mangohud
         ncdu
         neofetch
         nix-output-monitor

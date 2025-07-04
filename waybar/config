@@ -58,11 +58,12 @@
     "margin-bottom": 0,
     "modules-left": [
         "custom/appmenu",
+        "temperature#gpu",
         "temperature",
         "cpu",
         "memory",
         "disk",
-        "disk#home",
+        //"disk#home",
         "hyprland/window",
     ],
     "modules-center": [

@@ -30,5 +30,12 @@
                 fzf
             ];
         };
+        #mangohud = {
+        #    enable = true;
+        #    enableSessionWide = true;
+            #settings = {
+            #
+            #};
+        #};
     };
 }
