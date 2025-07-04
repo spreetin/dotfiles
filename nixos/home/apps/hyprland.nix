@@ -6,6 +6,7 @@
     home.packages = with pkgs; [
         cliphist
         hyprcursor
+	hyprlock
         hyprpaper
         hyprpicker
         hyprshot

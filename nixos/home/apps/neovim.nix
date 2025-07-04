@@ -7,14 +7,33 @@
         inputs.nixvim.homeModules.nixvim
     ];
 
+    home.sessionVariables.EDITOR = "nvim";
+
     programs.nixvim = {
         enable = true;
         colorschemes.tokyonight.enable = true;
 	colorscheme = "tokyonight";
         opts = {
+	    # Line numbers 
             number = true;
             relativenumber = true;
+
+	    # Tab/indent
             shiftwidth = 4;
+	    tabstop = 4;
+	    softtabstop = 4;
+	    expandtab = true;
+
+	    # UI
+	    splitbelow = true;
+	    splitright = true;
+	    termguicolors = true;
+
+	    # Search
+	    incsearch = true;
+	    hlsearch = true;
+	    ignorecase = true;
+	    smartcase = true;
         };
         lsp.servers.clangd.enable = true;
         plugins = {

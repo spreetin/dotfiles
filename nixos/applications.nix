@@ -8,6 +8,7 @@
     programs = {
         firefox.enable = true;
         mtr.enable = true;
+	nix-ld.enable = true;
         hyprland = {
             enable = true;
             #package = inputs.hyprland.packages.${pkgs.system}.default;
@@ -35,10 +36,6 @@
             enable = true;
             enableSSHSupport = true;
         };
-        #neovim = {
-        #    enable = true;
-        #    defaultEditor = true;
-        #};
         steam = {
             enable = true;
             remotePlay.openFirewall = true;

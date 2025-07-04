@@ -2,9 +2,7 @@
     description = "My OS config flake";
 
     inputs = {
-        nixpkgs = {
-            url = "github:NixOS/nixpkgs/nixos-unstable";
-        };
+        nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
         home-manager = {
             url = "github:nix-community/home-manager/master";
             inputs.nixpkgs.follows = "nixpkgs";
@@ -20,16 +18,15 @@
             url = "github:nix-community/nixvim";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-        #/Akari.url = "github:spector700/Akari";
-	#LazyVim = {
-	#    url = "github:matadaniel/LazyVim-module";
-	#    inputs.nixpkgs.follows = "nixpkgs";
-	#};
     };
 
     outputs = { self, nixpkgs, home-manager, ... }@inputs: 
         let
             system = "x86_64-linux";
+	    profile = "desktop";
+	    timezone = "Europe/Stockholm";
+	    locale = "sv_SE.UTF-8";
+
             pkgs = nixpkgs.legacyPackages.${system};
         in {
             nixosConfigurations = {
