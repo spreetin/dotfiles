@@ -1,49 +1,32 @@
-/*{
-    // General Settings
-    "layer": "top",
-    "margin-top": 3,
-    "margin-bottom": 0,
-    "margin-left": 5,
-    "margin-right": 5,
-    "spacing": 0,
-    // Load Modules
-    "include": [
-        "~/.config/waybar/modules"
-    ],
-    // Modules Left
-    "modules-left": [
-        "custom/appmenu",
-        //"group/links",
-        "wlr/taskbar",
-        "group/quicklinks",
-        "hyprland/window",
-        "custom/empty"
-    ],
-    // Modules Center
-    "modules-center": [
-        "hyprland/workspaces"
-    ],
-    // Modules Right    
-    "modules-right": [
-        "custom/updates",
-        "pulseaudio",
-        //"backlight",
-        "bluetooth",
-        "network",
-        "battery",
-        "power-profiles-daemon",
-        "group/hardware",
-        "group/tools",
-        "tray",
-        "custom/notification",
-        "custom/exit",
-        //"custom/ml4w-welcome",
-        "clock"
-    ]
-}*/
 {
     "include": [
-        "$HOME/.config/waybar/modules"
+        "$HOME/.config/waybar/modules/appmenu",
+        "$HOME/.config/waybar/modules/backlight",
+        "$HOME/.config/waybar/modules/battery",
+        "$HOME/.config/waybar/modules/bluetooth",
+        "$HOME/.config/waybar/modules/cliphist",
+        "$HOME/.config/waybar/modules/clock",
+        "$HOME/.config/waybar/modules/cpu",
+        "$HOME/.config/waybar/modules/disk",
+        "$HOME/.config/waybar/modules/empty",
+        "$HOME/.config/waybar/modules/exit",
+        "$HOME/.config/waybar/modules/hypridle",
+        "$HOME/.config/waybar/modules/hyprland-window",
+        "$HOME/.config/waybar/modules/keyboard-state",
+        "$HOME/.config/waybar/modules/language",
+        "$HOME/.config/waybar/modules/memory",
+        "$HOME/.config/waybar/modules/network",
+        "$HOME/.config/waybar/modules/power-profiles",
+        "$HOME/.config/waybar/modules/pulseaudio",
+        "$HOME/.config/waybar/modules/swaync",
+        "$HOME/.config/waybar/modules/system",
+        "$HOME/.config/waybar/modules/taskbar",
+        "$HOME/.config/waybar/modules/temperature",
+        "$HOME/.config/waybar/modules/tools",
+        "$HOME/.config/waybar/modules/tray",
+        "$HOME/.config/waybar/modules/user",
+        "$HOME/.config/waybar/modules/weather",
+        "$HOME/.config/waybar/modules/workspaces",
     ],
     "layer": "top",
     "exclusive": true,
@@ -58,7 +41,7 @@
     "margin-bottom": 0,
     "modules-left": [
         "custom/appmenu",
-        "temperature#gpu",
+        //"temperature#gpu",
         "temperature",
         "cpu",
         "memory",
@@ -68,10 +51,7 @@
     ],
     "modules-center": [
         "custom/empty",
-        "custom/swaync",
         "hyprland/workspaces#rw",
-        "clock",
-        "custom/weather",
         "custom/empty",
     ],
     "modules-right": [
@@ -80,7 +60,10 @@
         "bluetooth",
         "pulseaudio",
         "pulseaudio#microphone",
+        "clock",
+        "custom/weather",
         "battery",
+        "custom/swaync",
         "custom/power",
     ]
 }

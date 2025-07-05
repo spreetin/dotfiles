@@ -32,11 +32,9 @@
     home.file.".config/hypr/hypridle.conf".source = ../../../hypr/hypridle.conf;
 
     # Waybar
-    home.file.".config/waybar" = {
-        source = ../../../waybar;
-        recursive = true;
-        executable = true;
-    };
+    home.file.".config/waybar/config".source = ../../../waybar/config;
+    home.file.".config/waybar/style.css".source = ../../../waybar/style.css;
+    home.file.".config/waybar/modules".source = ../../../waybar/modules;
     
     home.file.".config/wlogout" = {
         source = ../../../wlogout;
