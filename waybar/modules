@@ -233,7 +233,7 @@
         "interval": 10,
         "tooltip": true,
         "hwmon-path": [
-            "/sys/class/hwmon/hwmon5/temp1_input"
+            "/sys/class/hwmon/hwmon7/temp1_input"
         ],
         //"thermal-zone": 0,
         "critical-threshold": 82,
