@@ -2,7 +2,7 @@
 
 {
     imports = [
-        ./chandrasekhar-hardware.nix
+        ./hardware.nix
     ];
     networking.hostName = "chandrasekhar";
     networking.hostId = "2bbbd2df";

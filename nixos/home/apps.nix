@@ -7,10 +7,10 @@
         (import ./apps/hyprland.nix { inherit pkgs inputs; })
         ./apps/zsh.nix
         (import ./apps/neovim.nix { inherit pkgs inputs; })
+        ./apps/games.nix
     ];
 
     home.packages = with pkgs; [
-        adwaita-icon-theme
         anki
         btop
         bitwarden-desktop
@@ -40,7 +40,6 @@
         librewolf
         lm_sensors
         lsof
-        lutris
         mangohud
         ncdu
         neofetch
@@ -54,14 +53,10 @@
         obs-studio
         obs-studio-plugins.obs-mute-filter
         obs-studio-plugins.obs-pipewire-audio-capture
-        openmw
         openrgb-with-all-plugins
-        openttd
         p7zip
         pciutils
-        protonplus
         protonvpn-gui
-        protonup-qt
         ripgrep
         signal-desktop
         sshfs

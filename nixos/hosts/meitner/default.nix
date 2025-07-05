@@ -2,7 +2,7 @@
 
 {
     imports = [
-        ./meitner-hardware.nix
+        ./hardware.nix
     ];
     networking = {
         hostName = "meitner";

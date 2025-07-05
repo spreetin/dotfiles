@@ -12,14 +12,14 @@
     programs.nixvim = {
         enable = true;
         colorschemes.tokyonight.enable = true;
-	colorscheme = "tokyonight";
+	    colorscheme = "tokyonight";
         opts = {
 	    # Line numbers 
-            number = true;
-            relativenumber = true;
+        number = true;
+        relativenumber = true;
 
 	    # Tab/indent
-            shiftwidth = 4;
+        shiftwidth = 4;
 	    tabstop = 4;
 	    softtabstop = 4;
 	    expandtab = true;

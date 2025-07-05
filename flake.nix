@@ -34,12 +34,12 @@
                     inherit system;
                     modules = [
                         ./nixos/configuration.nix
-                        ./nixos/hosts/chandrasekhar.nix
+                        ./nixos/hosts/chandrasekhar
                         home-manager.nixosModules.home-manager {
                             home-manager.useGlobalPkgs = true;
                             home-manager.useUserPackages = true;
                             home-manager.backupFileExtension = "backup";
-                            home-manager.users.david = import ./nixos/home/hosts/chandrasekhar.nix { inherit pkgs inputs; };
+                            home-manager.users.david = import ./nixos/home/hosts/chandrasekhar { inherit pkgs inputs; };
                         }
                     ];
                 };
@@ -47,12 +47,12 @@
                     inherit system;
                     modules = [
                         ./nixos/configuration.nix
-                        ./nixos/hosts/meitner.nix
+                        ./nixos/hosts/meitner
                         home-manager.nixosModules.home-manager {
                             home-manager.useGlobalPkgs = true;
                             home-manager.useUserPackages = true;
                             home-manager.backupFileExtension = "backup";
-                            home-manager.users.david = import ./nixos/home/hosts/meitner.nix { inherit pkgs inputs; };
+                            home-manager.users.david = import ./nixos/home/hosts/meitner { inherit pkgs inputs; };
                         }
                     ];
                 };
