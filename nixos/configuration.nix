@@ -47,6 +47,16 @@
                 };
             };
         };
+        xone.enable = true;
+        steam-hardware.enable = true;
+        graphics = {
+            enable = true;
+            enable32Bit = true;
+        };
+        amdgpu.amdvlk = {
+            enable = true;
+            support32Bit.enable = true;
+        };
     };
 
     networking = {

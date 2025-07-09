@@ -8,7 +8,7 @@
     programs = {
         firefox.enable = true;
         mtr.enable = true;
-	nix-ld.enable = true;
+	    nix-ld.enable = true;
         hyprland = {
             enable = true;
         };
@@ -39,6 +39,11 @@
             remotePlay.openFirewall = true;
             dedicatedServer.openFirewall = true;
             localNetworkGameTransfers.openFirewall = true;
+            gamescopeSession.enable = true;
+        };
+        gamescope = {
+            enable = true;
+            capSysNice = true;
         };
         thunar = {
             enable = true;

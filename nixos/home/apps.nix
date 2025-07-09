@@ -12,6 +12,7 @@
 
     home.packages = with pkgs; [
         anki
+        kdePackages.audex
         btop
         bitwarden-desktop
         bottles
@@ -20,23 +21,36 @@
         cava
         cloc
         cppcheck
+        cuetools
         dnsutils
         dia
         discord
+        easytag
         electron
         ffmpeg
         file
         filezilla
+        flac
+        flacon
         fzf
+        freac
         gimp3-with-plugins
         git-crypt
         gnupg
         gnused
         gnutar
+        gst_all_1.gstreamer
+        gst_all_1.gst-plugins-base
+        gst_all_1.gst-plugins-good
+        gst_all_1.gst-plugins-ugly
+        gst_all_1.gst-plugins-bad
         iftop
+        image-roll
 	    iotop
         jq
+        lame
         lazygit
+        libogg
         librewolf
         lm_sensors
         lsof
@@ -56,12 +70,17 @@
         openrgb-with-all-plugins
         p7zip
         pciutils
+        plexamp
+        plex-desktop
         protonvpn-gui
         ripgrep
+        shntool
         signal-desktop
         sshfs
         slurp
         solaar
+        soundconverter
+        sound-juicer
         spotify
         swappy
         texstudio
@@ -70,6 +89,7 @@
         unzip
         usbutils
         vlc
+        vorbis-tools
         wget
         wine
         winetricks
