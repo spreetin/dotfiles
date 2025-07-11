@@ -16,6 +16,7 @@
         "$HOME/.config/waybar/modules/language",
         "$HOME/.config/waybar/modules/memory",
         "$HOME/.config/waybar/modules/network",
+        "$HOME/.config/waybar/modules/power",
         "$HOME/.config/waybar/modules/power-profiles",
         "$HOME/.config/waybar/modules/pulseaudio",
         "$HOME/.config/waybar/modules/swaync",

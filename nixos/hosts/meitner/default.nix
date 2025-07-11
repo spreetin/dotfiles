@@ -14,14 +14,20 @@
         zfs.extraPools = [ "storage" ];
     };
 
-    hardware.graphics = {
-        enable = true;
-        enable32Bit = true;
-        extraPackages = with pkgs;  [
-            rocmPackages.clr.icd
-            amdvlk
-            driversi686Linux.amdvlk
-        ];
+    hardware =  {
+        graphics = {
+            enable = true;
+            enable32Bit = true;
+            extraPackages = with pkgs;  [
+                rocmPackages.clr.icd
+                amdvlk
+                driversi686Linux.amdvlk
+            ];
+        };
+        amdgpu.amdvlk = {
+            enable = true;
+            support32Bit.enable = true;
+        };
     };
 
     services.xserver.videoDrivers = [ "amdgpu" ];

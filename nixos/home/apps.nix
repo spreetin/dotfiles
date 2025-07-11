@@ -4,100 +4,47 @@
 
 {
     imports = [
+        # WM
         (import ./apps/hyprland.nix { inherit pkgs inputs; })
+
+        # Specific apps
         ./apps/zsh.nix
         (import ./apps/neovim.nix { inherit pkgs inputs; })
-        ./apps/games.nix
+        ./apps/obs.nix
+        ./apps/kitty.nix
+
+        # Package groups
+        ./appgroups/audiotools.nix
+        ./appgroups/chat.nix
+        ./appgroups/compression.nix
+        ./appgroups/dev.nix
+        ./appgroups/games.nix
+        ./appgroups/hardware.nix
+        ./appgroups/images.nix
+        ./appgroups/latex.nix
+        ./appgroups/mediaplayers.nix
+        ./appgroups/networking.nix
+        ./appgroups/office.nix
+        ./appgroups/tops.nix
     ];
 
+    # Packages that isn't grouped
     home.packages = with pkgs; [
         anki
-        kdePackages.audex
-        btop
         bitwarden-desktop
-        bottles
-        btop
         calibre
-        cava
-        cloc
-        cppcheck
-        cuetools
-        dnsutils
         dia
-        discord
-        easytag
-        electron
         ffmpeg
         file
-        filezilla
-        flac
-        flacon
         fzf
-        freac
-        gimp3-with-plugins
-        git-crypt
         gnupg
         gnused
-        gnutar
-        gst_all_1.gstreamer
-        gst_all_1.gst-plugins-base
-        gst_all_1.gst-plugins-good
-        gst_all_1.gst-plugins-ugly
-        gst_all_1.gst-plugins-bad
-        iftop
-        image-roll
-	    iotop
         jq
-        lame
-        lazygit
-        libogg
-        librewolf
-        lm_sensors
-        lsof
-        mangohud
-        ncdu
+        mc
         neofetch
         nix-output-monitor
-        nmap
-        nvtopPackages.full
-        nwg-displays
-        mc
-        mpv
-        mpvScripts.mpris
-        obs-studio
-        obs-studio-plugins.obs-mute-filter
-        obs-studio-plugins.obs-pipewire-audio-capture
-        openrgb-with-all-plugins
-        p7zip
-        pciutils
-        plexamp
-        plex-desktop
-        protonvpn-gui
         ripgrep
-        shntool
-        signal-desktop
-        sshfs
-        slurp
-        solaar
-        soundconverter
-        sound-juicer
-        spotify
-        swappy
-        texstudio
         tldr
-        traceroute
-        unzip
-        usbutils
-        vlc
-        vorbis-tools
-        wget
-        wine
-        winetricks
-        wireguard-tools
         which
-        xz
-        yt-dlp
-        zip
-        zoom-us
     ];
 }

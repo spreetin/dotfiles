@@ -1,6 +1,6 @@
 { pkgs, inputs }:
 
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 {
     imports = [ inputs.ags.homeManagerModules.default ];

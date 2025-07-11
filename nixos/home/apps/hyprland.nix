@@ -3,7 +3,15 @@
 { config, pkgs, ... }:
 
 {
+    programs = {
+        waybar = {
+            enable = true;
+        };
+        hyprlock.enable = true;
+    };
+
     home.packages = with pkgs; [
+        brightnessctl
         cliphist
         hyprcursor
         hypridle
@@ -11,8 +19,18 @@
         hyprpaper
         hyprpicker
         hyprshot
+        libappindicator
+        libiconv
+        libnotify
+        networkmanagerapplet
+        nwg-displays
+        pamixer
+        pavucontrol
+        playerctl
         rofi-wayland
         rose-pine-hyprcursor
+        slurp
+        swappy
         swaynotificationcenter
         swww
         wl-clipboard

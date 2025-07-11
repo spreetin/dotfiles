@@ -1,0 +1,9 @@
+{
+    "custom/power": {
+        "format": " ⏻ ",
+        "on-click": "wlogout", //"$HOME/.config/hypr/scripts/Wlogout.sh",
+        "on-click-right": "$HOME/.config/hypr/scripts/LockScreen.sh", //"$HOME/.config/hypr/scripts/ChangeBlur.sh",
+        "tooltip": true,
+        "tooltip-format": "Left: Power menu\nRight: Lock screen",
+    },
+}

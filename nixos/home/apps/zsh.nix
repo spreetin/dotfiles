@@ -21,6 +21,7 @@
                 plugins = [
                     "git"
                     "ssh"
+                    "sudo"
                 ];
             };
             shellAliases = {
