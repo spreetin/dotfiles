@@ -59,24 +59,19 @@
     };
 
     environment.systemPackages = with pkgs; [
-        autoconf
-        automake
+        age
         baobab
         bash
         bc
-        bison
         blueman
         brightnessctl
         browsh
+        cmake
         cpufrequtils
         dnsmasq
         dosfstools
         elinks
         findutils
-        flex
-        gcc
-        gdb
-        glib
         glxinfo
         gnumake
         gparted
@@ -96,7 +91,6 @@
         libiconv
         libnotify
         libreoffice
-        libtool
         lshw
         lua
         networkmanagerapplet
@@ -107,7 +101,6 @@
         pamixer
         pavucontrol
         pciutils
-        pkg-config
         playerctl
         rsync
         screen

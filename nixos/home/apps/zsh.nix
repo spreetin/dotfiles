@@ -25,6 +25,7 @@
             };
             shellAliases = {
                 rebuild = "sudo nixos-rebuild switch --flake /home/david/dotfiles/";
+                startflake = "nix flake init -t github:hercules-ci/flake-parts";
             };
         };
     };
