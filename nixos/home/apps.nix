@@ -14,7 +14,8 @@
         ./apps/kitty.nix
 
         # Package groups
-        ./appgroups/audiotools.nix
+        ./appgroups/audiotools.nix 
+        (import ./appgroups/browser.nix { inherit pkgs inputs; })
         ./appgroups/chat.nix
         ./appgroups/compression.nix
         ./appgroups/dev.nix

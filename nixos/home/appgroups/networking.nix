@@ -4,6 +4,7 @@
     home.packages = with pkgs; [
         dnsutils
         filezilla
+        nettools
         nmap
         protonvpn-gui
         sshfs

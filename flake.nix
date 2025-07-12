@@ -22,6 +22,10 @@
             url = "github:Mic92/sops-nix";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        firefox-addons = {
+            url = "github:nix-community/nur-combined?dir=repos/rycee/pkgs/firefox-addons";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = { self, nixpkgs, home-manager, sops-nix, ... }@inputs: 
