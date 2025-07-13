@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-    home.packages = with pkgs; [
-        polychromatic
-    ];
+  home.packages = with pkgs; [
+    polychromatic
+  ];
 }

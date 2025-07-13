@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 
 {
-    home.packages = with pkgs; [
-        discord
-        signal-desktop
-        zoom-us
-    ];
+  home.packages = with pkgs; [
+    discord
+    signal-desktop
+    zoom-us
+  ];
 }

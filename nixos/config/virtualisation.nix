@@ -1,11 +1,11 @@
 { config, pkgs, options, ... }:
 
 {
-    virtualisation = {
-        libvirtd = {
-            enable = true;
-            qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
-        };
-        spiceUSBRedirection.enable = true;
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
     };
+    spiceUSBRedirection.enable = true;
+  };
 }

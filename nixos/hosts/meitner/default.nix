@@ -1,46 +1,46 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-    imports = [
-        ./hardware.nix
+  imports = [
+    ./hardware.nix
+  ];
+  networking = {
+    hostName = "meitner";
+    hostId = "fcfbd6fb";
+  };
+
+  boot = {
+    initrd.kernelModules = [ "amdgpu" ];
+    zfs.extraPools = [ "storage" ];
+  };
+
+  hardware =  {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+      extraPackages = with pkgs;  [
+        rocmPackages.clr.icd
+        amdvlk
+        driversi686Linux.amdvlk
+      ];
+    };
+    amdgpu.amdvlk = {
+      enable = true;
+      support32Bit.enable = true;
+    };
+  };
+
+  services.xserver.videoDrivers = [ "amdgpu" ];
+
+  systemd = {
+    tmpfiles.rules = [
+      "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
     ];
-    networking = {
-        hostName = "meitner";
-        hostId = "fcfbd6fb";
-    };
+    packages = with pkgs; [ lact ];
+    services.lactd.wantedBy = [ "multi-user.target" ];
+  };
 
-    boot = {
-        initrd.kernelModules = [ "amdgpu" ];
-        zfs.extraPools = [ "storage" ];
-    };
-
-    hardware =  {
-        graphics = {
-            enable = true;
-            enable32Bit = true;
-            extraPackages = with pkgs;  [
-                rocmPackages.clr.icd
-                amdvlk
-                driversi686Linux.amdvlk
-            ];
-        };
-        amdgpu.amdvlk = {
-            enable = true;
-            support32Bit.enable = true;
-        };
-    };
-
-    services.xserver.videoDrivers = [ "amdgpu" ];
-
-    systemd = {
-        tmpfiles.rules = [
-            "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
-        ];
-        packages = with pkgs; [ lact ];
-        services.lactd.wantedBy = [ "multi-user.target" ];
-    };
-
-    environment.systemPackages = with pkgs; [
-        lact
-    ];
+  environment.systemPackages = with pkgs; [
+    lact
+  ];
 }

@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-    home.packages = with pkgs; [
-        texstudio
-    ];
+  home.packages = with pkgs; [
+    texstudio
+  ];
 }
