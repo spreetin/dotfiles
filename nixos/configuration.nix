@@ -5,25 +5,25 @@
 { config, pkgs, options, ... }:
 
 {
-    imports = [ 
-        ./applications.nix
-        ./config/boot.nix
-        ./config/fonts.nix
-        ./config/gui.nix
-        ./config/hardware.nix
-        ./config/localisation.nix
-        ./config/networking.nix
-        ./config/nix.nix
-        ./config/services.nix
-        ./config/users.nix
-        ./config/virtualisation.nix
-    ];
+  imports = [ 
+    ./applications.nix
+    ./config/boot.nix
+    ./config/fonts.nix
+    ./config/gui.nix
+    ./config/hardware.nix
+    ./config/localisation.nix
+    ./config/networking.nix
+    ./config/nix.nix
+    ./config/services.nix
+    ./config/users.nix
+    ./config/virtualisation.nix
+  ];
 
-    security = {
-        rtkit.enable = true;
-    };
+  security = {
+    rtkit.enable = true;
+  };
 
-    system = {
-        stateVersion = "25.05";
-    };
+  system = {
+    stateVersion = "25.05";
+  };
 }
