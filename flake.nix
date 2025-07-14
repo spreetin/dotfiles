@@ -7,14 +7,6 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    Hyprspace = {
-      url = "github:KZDKM/Hyprspace";
-      inputs.hyprland.follows = "hyprland";
-    };
     #astal = {
     #  url = "github:aylur/astal";
     #  inputs.nixpkgs.follows = "nixpkgs";
@@ -28,8 +20,20 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    firefox-addons = {
-      url = "github:nix-community/nur-combined?dir=repos/rycee/pkgs/firefox-addons";
+    hyprland = {
+      url = "path:./nixos/home/modules/hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    neovim = {
+      url = "path:./nixos/home/modules/neovim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    firefox = {
+      url = "path:./nixos/home/modules/firefox";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    zsh = {
+      url = "path:./nixos/home/modules/zsh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

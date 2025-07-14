@@ -5,14 +5,19 @@
 {
   imports = [
     # WM
-    (import ./apps/hyprland.nix { inherit pkgs inputs; })
+    inputs.hyprland.homeManagerModules.hyprland
+    #(import ./apps/hyprland.nix { inherit pkgs inputs; })
 
     # Specific apps
-    (import ./apps/zsh.nix { inherit pkgs config; filesource = ../../oh-my-zsh; })
-    (import ./apps/neovim.nix { inherit pkgs inputs; filesource = ../../neovim; })
+    #(import ./apps/zsh.nix { inherit pkgs config; filesource = ../../oh-my-zsh; })
+    #(import ./apps/neovim.nix { inherit pkgs inputs; filesource = ../../neovim; })
+    inputs.zsh.zsh
+    inputs.neovim.neovim
+    inputs.neovim.lsp
+    inputs.firefox.firefox
     ./apps/obs.nix
     ./apps/kitty.nix
-    (import ./apps/firefox.nix { inherit pkgs inputs; })
+    #(import ./apps/firefox.nix { inherit pkgs inputs; })
 
     # Package groups
     ./appgroups/audiotools.nix 
