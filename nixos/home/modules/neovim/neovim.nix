@@ -3,10 +3,6 @@
 { lib, config, pkgs, ... }:
 
 {
-  #imports = [
-      #inputs.nixvim.homeModules.nixvim
-  #];
-
   home.sessionVariables.EDITOR = "nvim";
 
   programs.neovim = {
