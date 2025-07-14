@@ -1,6 +1,6 @@
 { pkgs, inputs }:
 
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 {
   imports = [
@@ -8,8 +8,8 @@
     (import ./apps/hyprland.nix { inherit pkgs inputs; })
 
     # Specific apps
-    ./apps/zsh.nix
-    (import ./apps/neovim.nix { inherit pkgs inputs; })
+    (import ./apps/zsh.nix { inherit pkgs config; filesource = ../../oh-my-zsh; })
+    (import ./apps/neovim.nix { inherit pkgs inputs; filesource = ../../neovim; })
     ./apps/obs.nix
     ./apps/kitty.nix
     (import ./apps/firefox.nix { inherit pkgs inputs; })
@@ -32,7 +32,9 @@
 
   # Packages that isn't grouped
   home.packages = with pkgs; [
+    ags
     anki
+    astal.battery
     bitwarden-desktop
     calibre
     dia

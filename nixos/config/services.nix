@@ -16,7 +16,7 @@
     printing.enable = true;
     pulseaudio.enable = false;
     pipewire = {
-    enable = true;
+      enable = true;
       alsa = {
         enable = true;
 	      support32Bit = true;
@@ -24,7 +24,16 @@
       pulse.enable = true;
       jack.enable = true;
     };
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      settings = {
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
+        PermitRootLogin = "no";
+        AllowUsers = [ "david" ];
+        openFirewall = true;
+      };
+    };
     gvfs.enable = true;
     tumbler.enable = true;
     flatpak.enable = true;

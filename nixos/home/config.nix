@@ -3,7 +3,7 @@
 { lib, config, pkgs, ... }:
 
 {
-  imports = [ inputs.ags.homeManagerModules.default ];
+  #imports = [ inputs.ags.homeManagerModules.default ];
 
   xdg.enable = true;
 
@@ -23,13 +23,13 @@
       userName = "David Falk";
       userEmail = "spreetin@protonmail.com";
     };
-    ags = {
-      enable = true;
-      extraPackages = with pkgs; [
-        inputs.astal.packages.${pkgs.system}.battery
-        fzf
-      ];
-    };
+    #ags = {
+    #  enable = lib.mkForce true;
+    #  extraPackages = with pkgs; [
+    #    inputs.astal.packages.${pkgs.system}.battery
+    #    fzf
+    #  ];
+    #};
     #mangohud = {
       #enable = true;
       #enableSessionWide = true;

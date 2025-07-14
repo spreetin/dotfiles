@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, filesource, ... }:
 
 {
   home.packages = with pkgs; [
@@ -7,7 +7,7 @@
   ];
 
   home.file.".oh-my-zsh/custom" = {
-    source = ../../../oh-my-zsh/custom;
+    source = "${filesource}/custom";
     recursive = true;
   };
 
@@ -25,7 +25,6 @@
       ];
       };
       shellAliases = {
-        rebuild = "sudo nixos-rebuild switch --flake /home/david/dotfiles/";
         startflake = "nix flake init -t github:hercules-ci/flake-parts";
       };
     };

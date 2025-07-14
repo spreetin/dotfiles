@@ -8,6 +8,11 @@
       extraGroups = [ "networkmanager" "wheel" "video" "users" "libvirtd" "david" ];
       uid = 1000;
       shell = pkgs.zsh;
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMwQTryaCEquPZevu6Bktsit6X9N0ELTlR+64HEmmAlu david"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKEYtM61shlz8Q+XkHRW2El3hlmknXLVvh9LEmMbSA0E david"
+        #"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILF57+ssPTZXdwVa/ySNLdz86Za7P7UDBVBGgcItkzT3 deck"
+      ];
     };
     groups = {
       david.gid = 1000;

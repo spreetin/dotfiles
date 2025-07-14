@@ -4,7 +4,7 @@
 
 {
   imports = [
-    (import ../../home.nix { inherit pkgs inputs; })
+    #(import ../../home.nix { inherit pkgs inputs; })
     ./apps.nix
     ./configs.nix
   ];
