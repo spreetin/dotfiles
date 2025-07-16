@@ -21,6 +21,6 @@ vim.keymap.set("v", ">", ">gv", opts)
 -- Plugins
 vim.keymap.set("n", "<leader>t", ":ToggleTerm<CR>", {
 	desc = "toggle terminal",
-	norempar = true,
+	noremap = true,
 	silent = true,
 })

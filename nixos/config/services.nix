@@ -31,7 +31,6 @@
         KbdInteractiveAuthentication = false;
         PermitRootLogin = "no";
         AllowUsers = [ "david" ];
-        openFirewall = true;
       };
     };
     gvfs.enable = true;

@@ -39,13 +39,13 @@
   # Hyprland
   home.file.".config/hypr/configs".source = "${filesource}/hypr/configs";
   home.file.".config/hypr/scripts" = {
-    source = "${filesource}/scripts";
+    source = "${filesource}/hypr/scripts";
     executable = true;
   };
   home.file.".config/hypr/wallpaper".source = "${filesource}/hypr/wallpaper";
   home.file.".config/hypr/hyprpaper.conf".source = "${filesource}/hypr/hyprpaper.conf";
   home.file.".config/hypr/hyprlock.conf".source = "${filesource}/hypr/hyprlock.conf";
-  home.file.".config/hypr/wallust".source = "${filesource}/wallust";
+  home.file.".config/hypr/wallust".source = "${filesource}/hypr/wallust";
   home.file.".config/hypr/hypridle.conf".source = "${filesource}/hypr/hypridle.conf";
 
   # Waybar

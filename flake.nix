@@ -36,6 +36,14 @@
       url = "path:./nixos/home/modules/zsh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dotfiles_hidden = {
+      url = "git+ssh://git@github.com/spreetin/dotfiles_hidden";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    gophertube = {
+      url = "github:/KrishnaSSH/GopherTube";
+      inputs.nixpkgs.follows = "nixpkgs";
+    }
   };
 
   outputs = { self, nixpkgs, home-manager, sops-nix, ... }@inputs: 
