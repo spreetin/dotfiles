@@ -43,7 +43,7 @@
     gophertube = {
       url = "github:/KrishnaSSH/GopherTube";
       inputs.nixpkgs.follows = "nixpkgs";
-    }
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, sops-nix, ... }@inputs: 
