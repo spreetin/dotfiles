@@ -55,6 +55,6 @@
     ripgrep
     tldr
     which
-    inputs.gophertube.packages.x86_64-linux.default
+    #inputs.gophertube.packages.x86_64-linux.default
   ];
 }
