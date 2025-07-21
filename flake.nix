@@ -36,6 +36,11 @@
       url = "path:./nixos/home/modules/zsh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    home = {
+      url = "path:./nixos/home";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
     dotfiles_hidden = {
       url = "git+ssh://git@github.com/spreetin/dotfiles_hidden";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -59,9 +64,11 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
-            home-manager.users.david = (import ./nixos/home {
-              inherit pkgs inputs hostname computerType;
-            });
+            home-manager.users.david = inputs.home.homeConfigurations.${system}.mkHome {
+              inherit hostname computerType;
+            };#(import ./nixos/home {
+            #inherit pkgs inputs hostname computerType;
+            #});
           }
           ({ ... }: { networking.hostName = hostname; })
           #(import ./nixos/home { inherit pkgs inputs hostname computerType; })

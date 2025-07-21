@@ -158,6 +158,25 @@
         "type": "github"
       }
     },
+    "home": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "path": "./nixos/home",
+        "type": "path"
+      },
+      "original": {
+        "path": "./nixos/home",
+        "type": "path"
+      },
+      "parent": []
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -564,6 +583,7 @@
       "inputs": {
         "dotfiles_hidden": "dotfiles_hidden",
         "firefox": "firefox",
+        "home": "home",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "neovim": "neovim",
