@@ -20,23 +20,7 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      url = "path:./nixos/home/modules/hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    neovim = {
-      url = "path:./nixos/home/modules/neovim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    firefox = {
-      url = "path:./nixos/home/modules/firefox";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    zsh = {
-      url = "path:./nixos/home/modules/zsh";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    home = {
+    home_config = {
       url = "path:./nixos/home";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
@@ -51,7 +35,7 @@
     #};
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix, ... }@inputs: 
+  outputs = { self, nixpkgs, home_config, home-manager, sops-nix, ... }@inputs: 
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -64,7 +48,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
-            home-manager.users.david = inputs.home.homeConfigurations.${system}.mkHome {
+            home-manager.users.david = home_config.homeConfigurations.${system}.mkHome {
               inherit hostname computerType;
             };#(import ./nixos/home {
             #inherit pkgs inputs hostname computerType;

@@ -3,6 +3,7 @@
     "Hyprspace": {
       "inputs": {
         "hyprland": [
+          "home_config",
           "hyprland",
           "hyprland"
         ],
@@ -25,21 +26,25 @@
     "aquamarine": {
       "inputs": {
         "hyprutils": [
+          "home_config",
           "hyprland",
           "hyprland",
           "hyprutils"
         ],
         "hyprwayland-scanner": [
+          "home_config",
           "hyprland",
           "hyprland",
           "hyprwayland-scanner"
         ],
         "nixpkgs": [
+          "home_config",
           "hyprland",
           "hyprland",
           "nixpkgs"
         ],
         "systems": [
+          "home_config",
           "hyprland",
           "hyprland",
           "systems"
@@ -83,33 +88,37 @@
       "inputs": {
         "firefox-addons": "firefox-addons",
         "nixpkgs": [
+          "home_config",
           "nixpkgs"
         ]
       },
       "locked": {
-        "path": "./nixos/home/modules/firefox",
+        "path": "./modules/firefox",
         "type": "path"
       },
       "original": {
-        "path": "./nixos/home/modules/firefox",
+        "path": "./modules/firefox",
         "type": "path"
       },
-      "parent": []
+      "parent": [
+        "home_config"
+      ]
     },
     "firefox-addons": {
       "inputs": {
         "nixpkgs": [
+          "home_config",
           "firefox",
           "nixpkgs"
         ]
       },
       "locked": {
         "dir": "repos/rycee/pkgs/firefox-addons",
-        "lastModified": 1752931121,
-        "narHash": "sha256-b3KJYmlQMZIOC6mKP75B/Ui+Ts/w637H0fauVjrS/zE=",
+        "lastModified": 1753175097,
+        "narHash": "sha256-ysspU4eALA2irdem/g/nyTLoNT4ZtJIwS51fIkRgfyc=",
         "owner": "nix-community",
         "repo": "nur-combined",
-        "rev": "2cf2552c29a2b6fd7674bef35bc7aad2e220a7a2",
+        "rev": "32b4586a1e665f725428d44ecfacd3501d5b9bbc",
         "type": "github"
       },
       "original": {
@@ -138,6 +147,7 @@
     "gitignore": {
       "inputs": {
         "nixpkgs": [
+          "home_config",
           "hyprland",
           "hyprland",
           "pre-commit-hooks",
@@ -158,25 +168,6 @@
         "type": "github"
       }
     },
-    "home": {
-      "inputs": {
-        "home-manager": [
-          "home-manager"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "path": "./nixos/home",
-        "type": "path"
-      },
-      "original": {
-        "path": "./nixos/home",
-        "type": "path"
-      },
-      "parent": []
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -184,11 +175,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1752814804,
-        "narHash": "sha256-irfg7lnfEpJY+3Cffkluzp2MTVw1Uq9QGxFp6qadcXI=",
+        "lastModified": 1753177090,
+        "narHash": "sha256-WD80Y1wwdcjwppVHYGLVKVe2sdaR9hH7OLEjEmWoTB0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d0300c8808e41da81d6edfc202f3d3833c157daf",
+        "rev": "d1db9055ea3934e36a82332f6237b789b1d859ab",
         "type": "github"
       },
       "original": {
@@ -201,6 +192,7 @@
     "home-manager_2": {
       "inputs": {
         "nixpkgs": [
+          "home_config",
           "hyprland",
           "nixpkgs"
         ]
@@ -220,19 +212,45 @@
         "type": "github"
       }
     },
+    "home_config": {
+      "inputs": {
+        "firefox": "firefox",
+        "home-manager": [
+          "home-manager"
+        ],
+        "hyprland": "hyprland",
+        "neovim": "neovim",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "zsh": "zsh"
+      },
+      "locked": {
+        "path": "./nixos/home",
+        "type": "path"
+      },
+      "original": {
+        "path": "./nixos/home",
+        "type": "path"
+      },
+      "parent": []
+    },
     "hyprcursor": {
       "inputs": {
         "hyprlang": [
+          "home_config",
           "hyprland",
           "hyprland",
           "hyprlang"
         ],
         "nixpkgs": [
+          "home_config",
           "hyprland",
           "hyprland",
           "nixpkgs"
         ],
         "systems": [
+          "home_config",
           "hyprland",
           "hyprland",
           "systems"
@@ -255,16 +273,19 @@
     "hyprgraphics": {
       "inputs": {
         "hyprutils": [
+          "home_config",
           "hyprland",
           "hyprland",
           "hyprutils"
         ],
         "nixpkgs": [
+          "home_config",
           "hyprland",
           "hyprland",
           "nixpkgs"
         ],
         "systems": [
+          "home_config",
           "hyprland",
           "hyprland",
           "systems"
@@ -290,27 +311,32 @@
         "home-manager": "home-manager_2",
         "hyprland": "hyprland_2",
         "nixpkgs": [
+          "home_config",
           "nixpkgs"
         ]
       },
       "locked": {
-        "path": "./nixos/home/modules/hyprland",
+        "path": "./modules/hyprland",
         "type": "path"
       },
       "original": {
-        "path": "./nixos/home/modules/hyprland",
+        "path": "./modules/hyprland",
         "type": "path"
       },
-      "parent": []
+      "parent": [
+        "home_config"
+      ]
     },
     "hyprland-protocols": {
       "inputs": {
         "nixpkgs": [
+          "home_config",
           "hyprland",
           "hyprland",
           "nixpkgs"
         ],
         "systems": [
+          "home_config",
           "hyprland",
           "hyprland",
           "systems"
@@ -333,18 +359,21 @@
     "hyprland-qt-support": {
       "inputs": {
         "hyprlang": [
+          "home_config",
           "hyprland",
           "hyprland",
           "hyprland-qtutils",
           "hyprlang"
         ],
         "nixpkgs": [
+          "home_config",
           "hyprland",
           "hyprland",
           "hyprland-qtutils",
           "nixpkgs"
         ],
         "systems": [
+          "home_config",
           "hyprland",
           "hyprland",
           "hyprland-qtutils",
@@ -369,11 +398,13 @@
       "inputs": {
         "hyprland-qt-support": "hyprland-qt-support",
         "hyprlang": [
+          "home_config",
           "hyprland",
           "hyprland",
           "hyprlang"
         ],
         "hyprutils": [
+          "home_config",
           "hyprland",
           "hyprland",
           "hyprland-qtutils",
@@ -381,11 +412,13 @@
           "hyprutils"
         ],
         "nixpkgs": [
+          "home_config",
           "hyprland",
           "hyprland",
           "nixpkgs"
         ],
         "systems": [
+          "home_config",
           "hyprland",
           "hyprland",
           "systems"
@@ -416,6 +449,7 @@
         "hyprutils": "hyprutils",
         "hyprwayland-scanner": "hyprwayland-scanner",
         "nixpkgs": [
+          "home_config",
           "hyprland",
           "nixpkgs"
         ],
@@ -440,16 +474,19 @@
     "hyprlang": {
       "inputs": {
         "hyprutils": [
+          "home_config",
           "hyprland",
           "hyprland",
           "hyprutils"
         ],
         "nixpkgs": [
+          "home_config",
           "hyprland",
           "hyprland",
           "nixpkgs"
         ],
         "systems": [
+          "home_config",
           "hyprland",
           "hyprland",
           "systems"
@@ -472,11 +509,13 @@
     "hyprutils": {
       "inputs": {
         "nixpkgs": [
+          "home_config",
           "hyprland",
           "hyprland",
           "nixpkgs"
         ],
         "systems": [
+          "home_config",
           "hyprland",
           "hyprland",
           "systems"
@@ -499,11 +538,13 @@
     "hyprwayland-scanner": {
       "inputs": {
         "nixpkgs": [
+          "home_config",
           "hyprland",
           "hyprland",
           "nixpkgs"
         ],
         "systems": [
+          "home_config",
           "hyprland",
           "hyprland",
           "systems"
@@ -526,18 +567,21 @@
     "neovim": {
       "inputs": {
         "nixpkgs": [
+          "home_config",
           "nixpkgs"
         ]
       },
       "locked": {
-        "path": "./nixos/home/modules/neovim",
+        "path": "./modules/neovim",
         "type": "path"
       },
       "original": {
-        "path": "./nixos/home/modules/neovim",
+        "path": "./modules/neovim",
         "type": "path"
       },
-      "parent": []
+      "parent": [
+        "home_config"
+      ]
     },
     "nixpkgs": {
       "locked": {
@@ -560,6 +604,7 @@
         "flake-compat": "flake-compat",
         "gitignore": "gitignore",
         "nixpkgs": [
+          "home_config",
           "hyprland",
           "hyprland",
           "nixpkgs"
@@ -582,14 +627,10 @@
     "root": {
       "inputs": {
         "dotfiles_hidden": "dotfiles_hidden",
-        "firefox": "firefox",
-        "home": "home",
         "home-manager": "home-manager",
-        "hyprland": "hyprland",
-        "neovim": "neovim",
+        "home_config": "home_config",
         "nixpkgs": "nixpkgs",
-        "sops-nix": "sops-nix",
-        "zsh": "zsh"
+        "sops-nix": "sops-nix"
       }
     },
     "sops-nix": {
@@ -645,31 +686,37 @@
     "xdph": {
       "inputs": {
         "hyprland-protocols": [
+          "home_config",
           "hyprland",
           "hyprland",
           "hyprland-protocols"
         ],
         "hyprlang": [
+          "home_config",
           "hyprland",
           "hyprland",
           "hyprlang"
         ],
         "hyprutils": [
+          "home_config",
           "hyprland",
           "hyprland",
           "hyprutils"
         ],
         "hyprwayland-scanner": [
+          "home_config",
           "hyprland",
           "hyprland",
           "hyprwayland-scanner"
         ],
         "nixpkgs": [
+          "home_config",
           "hyprland",
           "hyprland",
           "nixpkgs"
         ],
         "systems": [
+          "home_config",
           "hyprland",
           "hyprland",
           "systems"
@@ -692,18 +739,21 @@
     "zsh": {
       "inputs": {
         "nixpkgs": [
+          "home_config",
           "nixpkgs"
         ]
       },
       "locked": {
-        "path": "./nixos/home/modules/zsh",
+        "path": "./modules/zsh",
         "type": "path"
       },
       "original": {
-        "path": "./nixos/home/modules/zsh",
+        "path": "./modules/zsh",
         "type": "path"
       },
-      "parent": []
+      "parent": [
+        "home_config"
+      ]
     }
   },
   "root": "root",
