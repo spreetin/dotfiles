@@ -12,10 +12,18 @@
       sandbox = true;
       #max-jobs = "auto";
     };
-    gc = {
-      automatic = true;
-      dates = "daily";
-      options = "--delete-older-than 7d";
+    #gc = {
+    #  automatic = true;
+    #  dates = "daily";
+    #  options = "--delete-older-than 7d";
+    #};
+  };
+  programs.nh = {
+    enable = true;
+    flake = "/home/david/code/dotfiles/";
+    clean = {
+      enable = true;
+      extraArgs = "--keep 10 --keep-since 14d";
     };
   };
 }

@@ -1,0 +1,6 @@
+{ hostname }:
+
+{ config, pkgs, ... }:
+
+{
+}

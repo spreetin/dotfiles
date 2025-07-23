@@ -6,7 +6,7 @@
   imports = [
     #./david.nix
     (import ./hosts/${hostname} { inherit pkgs inputs; })
-    ./types/${computerType}.nix
+    (import ./types/${computerType}.nix { inherit pkgs inputs; })
     (import ./home.nix { inherit pkgs inputs; })
   ];
 }

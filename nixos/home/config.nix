@@ -11,10 +11,10 @@
   home.homeDirectory = "/home/david";
   home.stateVersion = "25.05";
 
-  home.file.".config/kitty" = {
-    source = ../../kitty;
-    recursive = true;
-  };
+  #home.file.".config/kitty" = {
+  #  source = ../../kitty;
+  #  recursive = true;
+  #};
   home.file.".config/ags".source = ../../ags;
 
   programs = {
@@ -36,5 +36,9 @@
       #settings = {
       #};
     #};
+  };
+  home.file.".local/bin/flake-update" = {
+    source = ../../scripts/flake-update;
+    executable = true;
   };
 }

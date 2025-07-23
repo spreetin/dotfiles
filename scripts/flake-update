@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+for dir in /home/david/code/dotfiles/nixos/home/modules/*; do
+  if [[ -f "${dir}/flake.nix" ]]; then
+    echo "Updating ${dir}..."
+    (cd "$dir" && nix flake update)
+  fi
+done
+
+(cd /home/david/code/dotfiles/ && nix flake update)

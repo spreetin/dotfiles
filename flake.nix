@@ -1,21 +1,13 @@
 {
   description = "My OS config flake";
 
+  #inputs = (import ./nixos/inputs/inputs.nix);
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #astal = {
-    #  url = "github:aylur/astal";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
-    #ags = {
-    #  url = "github:aylur/ags";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #  inputs.astal.follows = "astal";
-    #};
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";

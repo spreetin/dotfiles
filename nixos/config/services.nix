@@ -2,17 +2,6 @@
 
 {
   services = {
-    displayManager = {
-      sddm = {
-        enable = true;
-	      wayland.enable = true;
-        theme = "chili";
-      };
-    };
-    xserver.xkb = {
-      layout = "se";
-      variant = "";
-    };
     printing.enable = true;
     pulseaudio.enable = false;
     pipewire = {
@@ -36,12 +25,10 @@
     gvfs.enable = true;
     tumbler.enable = true;
     flatpak.enable = true;
-    blueman.enable = true;
     fwupd.enable = true;
     upower.enable = true;
     fstrim.enable = true;
-    gnome.gnome-keyring.enable = true;
-        
+    
     hardware = {
       openrgb.enable = true;
     };
