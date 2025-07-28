@@ -30,5 +30,10 @@
         startflake = "nix flake init -t github:hercules-ci/flake-parts";
       };
     };
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+      options = [ "--cmd cd" ];
+    };
   };
 }

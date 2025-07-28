@@ -65,6 +65,7 @@
         "custom/weather",
         "battery",
         "custom/swaync",
-        "custom/power",
+        "group/powergroup"
+        //"custom/power",
     ]
 }
