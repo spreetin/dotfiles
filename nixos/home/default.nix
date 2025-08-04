@@ -8,5 +8,7 @@
     (import ./hosts/${hostname} { inherit pkgs inputs; })
     (import ./types/${computerType}.nix { inherit pkgs inputs; })
     (import ./home.nix { inherit pkgs inputs; })
+    inputs.catppuccin.homeModules.catppuccin
+    ./catppuccin.nix
   ];
 }

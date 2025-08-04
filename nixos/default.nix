@@ -6,6 +6,7 @@
   imports = [
     (import ./${computerType} { inherit hostname; })
     ./config/boot.nix
+    ./config/catppuccin.nix
     ./config/fonts.nix
     ./config/gui.nix
     ./config/hardware.nix

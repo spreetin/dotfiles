@@ -53,11 +53,11 @@
   home.file.".config/waybar/style.css".source = "${filesource}/waybar/style.css";
   home.file.".config/waybar/modules".source = "${filesource}/waybar/modules";
   
-  home.file.".config/wlogout" = {
-    source = "${filesource}/wlogout";
-    recursive = true;
-    executable = true;
-  };
+  #home.file.".config/wlogout" = {
+  #  source = "${filesource}/wlogout";
+  #  recursive = true;
+  #  executable = true;
+  #};
 
   gtk = {
     enable = true;

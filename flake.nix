@@ -32,13 +32,14 @@
       url = "git+ssh://git@github.com/spreetin/dotfiles_hidden";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    catppuccin.url = "github:catppuccin/nix";
     #gophertube = {
     #  url = "github:/KrishnaSSH/GopherTube";
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, catppuccin, sops-nix, ... }@inputs: 
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -47,6 +48,7 @@
         modules = [
           (import ./nixos { inherit hostname computerType; })
           sops-nix.nixosModules.sops
+          catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
