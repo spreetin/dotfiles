@@ -17,6 +17,7 @@
     #inputs.firefox.firefox
     #./apps/obs.nix
     #./apps/kitty.nix
+    ./apps/isakssons.nix
     #(import ./apps/firefox.nix { inherit pkgs inputs; })
 
     # Package groups
