@@ -1,12 +1,5 @@
 {
-  options,
-  pkgs,
-  config,
-  ...
-}:
-
-{
-  programs.nixvim.keymaps = [
+  keymaps = [
     {
       mode = "n";
       key = "<C-h>";

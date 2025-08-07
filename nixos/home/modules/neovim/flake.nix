@@ -1,13 +1,45 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      neovim = import ./neovim.nix { inherit inputs pkgs; filesource = ../../../../neovim; };
-      lsp = import ./lsp.nix { inherit pkgs; };
+  outputs =
+    { nixvim, flake-parts, ... }@inputs:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
+
+      perSystem =
+        { system, ... }:
+        let
+          nixvimLib = nixvim.lib.${system};
+          nixvim' = nixvim.legacyPackages.${system};
+          nixvimModule = {
+            inherit system;
+            module = ./nixvim.nix;
+            extraSpecialArgs = {
+              #
+            };
+          };
+          nvim = nixvim'.makeNixvimWithModule nixvimModule;
+        in
+        {
+          checks = {
+            default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
+          };
+
+          packages = {
+            default = nvim;
+          };
+        };
     };
 }

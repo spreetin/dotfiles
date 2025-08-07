@@ -1,6 +1,11 @@
 { pkgs, inputs }:
 
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -18,12 +23,12 @@
     #./apps/obs.nix
     #./apps/kitty.nix
     ./apps/isakssons.nix
-    (import ./apps/nixvim {inherit inputs pkgs;})
+    #(import ./apps/nixvim {inherit inputs pkgs;})
     #./apps/hyprland/hyprland.nix
     #(import ./apps/firefox.nix { inherit pkgs inputs; })
 
     # Package groups
-    #./appgroups/audiotools.nix 
+    #./appgroups/audiotools.nix
     #./appgroups/browser.nix
     #./appgroups/chat.nix
     ./appgroups/compression.nix
@@ -54,6 +59,7 @@
     ripgrep
     tldr
     which
+    inputs.neovim.packages.x86_64-linux.default
     #inputs.gophertube.packages.x86_64-linux.default
   ];
 }

@@ -1,6 +1,12 @@
 #{ inputs, pkgs, hostname, computerType }:
 
-{ pkgs, inputs, hostname, computerType, ... }:
+{
+  pkgs,
+  inputs,
+  hostname,
+  computerType,
+  ...
+}:
 
 {
   imports = [
@@ -9,7 +15,7 @@
     (import ./types/${computerType}.nix { inherit pkgs inputs hostname; })
     (import ./home.nix { inherit pkgs inputs; })
     inputs.catppuccin.homeModules.catppuccin
-    inputs.nixvim.homeModules.nixvim
+    #inputs.nixvim.homeModules.nixvim
     ./catppuccin.nix
   ];
 }

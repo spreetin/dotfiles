@@ -6,7 +6,7 @@
 }:
 
 {
-  programs.nixvim.plugins.lint = {
+  plugins.lint = {
     enable = true;
     lintersByFt = {
       c = [ "cppheck" ];

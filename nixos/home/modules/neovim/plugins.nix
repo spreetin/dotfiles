@@ -1,11 +1,4 @@
 {
-  options,
-  pkgs,
-  config,
-  ...
-}:
-
-{
   imports = [
     ./plugins/conform.nix
     ./plugins/lint.nix
@@ -13,7 +6,7 @@
     ./plugins/which-key.nix
   ];
 
-  programs.nixvim.plugins = {
+  plugins = {
     actions-preview.enable = true;
     blink-cmp.enable = true;
     bufferline.enable = true;

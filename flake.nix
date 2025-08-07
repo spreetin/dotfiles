@@ -1,7 +1,6 @@
 {
   description = "My OS config flake";
 
-  #inputs = (import ./nixos/inputs/inputs.nix);
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
@@ -13,19 +12,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland" ;
+      url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     Hyprspace = {
       url = "github:KZDKM/Hyprspace";
       inputs.hyprland.follows = "hyprland";
     };
-    #neovim = {
-    #  url = "path:./nixos/home/modules/nixvim";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
-    nixvim = {
-      url = "github:nix-community/nixvim";
+    neovim = {
+      url = "path:./nixos/home/modules/neovim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     firefox = {
@@ -47,36 +42,66 @@
     #};
   };
 
-  outputs = { self, nixpkgs, home-manager, catppuccin, sops-nix, ... }@inputs: 
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      catppuccin,
+      sops-nix,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      createHost = { hostname, computerType} : nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          (import ./nixos { inherit hostname computerType; })
-          sops-nix.nixosModules.sops
-          catppuccin.nixosModules.catppuccin
-          home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.extraSpecialArgs = {
-              inherit hostname;
-            };
-            home-manager.users.david = (import ./nixos/home {
-              inherit pkgs inputs hostname computerType;
-            });
-          }
-          ({ ... }: { networking.hostName = hostname; })
-          #(import ./nixos/home { inherit pkgs inputs hostname computerType; })
-        ];
-      };
+      createHost =
+        { hostname, computerType }:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./nixos { inherit hostname computerType; })
+            sops-nix.nixosModules.sops
+            catppuccin.nixosModules.catppuccin
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "backup";
+              home-manager.extraSpecialArgs = {
+                inherit hostname;
+              };
+              home-manager.users.david = (
+                import ./nixos/home {
+                  inherit
+                    pkgs
+                    inputs
+                    hostname
+                    computerType
+                    ;
+                }
+              );
+            }
+            (
+              { ... }:
+              {
+                networking.hostName = hostname;
+              }
+            )
+            #(import ./nixos/home { inherit pkgs inputs hostname computerType; })
+          ];
+        };
       hosts = {
-        chandrasekhar = { hostname = "chandrasekhar"; computerType = "desktop"; };
-        meitner = { hostname = "meitner"; computerType = "desktop"; };
+        chandrasekhar = {
+          hostname = "chandrasekhar";
+          computerType = "desktop";
+        };
+        meitner = {
+          hostname = "meitner";
+          computerType = "desktop";
+        };
       };
-    in {
+    in
+    {
       nixosConfigurations = nixpkgs.lib.mapAttrs (_: cfg: createHost cfg) hosts;
     };
 }

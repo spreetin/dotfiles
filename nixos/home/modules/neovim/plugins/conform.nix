@@ -6,7 +6,7 @@
 }:
 
 {
-  programs.nixvim.plugins.conform-nvim = {
+  plugins.conform-nvim = {
     enable = true;
     settings = {
       lsp_format = "fallback";
