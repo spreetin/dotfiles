@@ -13,11 +13,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "path:./nixos/home/modules/hyprland";
+      url = "github:hyprwm/Hyprland" ;
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim = {
-      url = "path:./nixos/home/modules/neovim";
+    Hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+      inputs.hyprland.follows = "hyprland";
+    };
+    #neovim = {
+    #  url = "path:./nixos/home/modules/nixvim";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
+    nixvim = {
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     firefox = {
@@ -53,6 +61,9 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
+            home-manager.extraSpecialArgs = {
+              inherit hostname;
+            };
             home-manager.users.david = (import ./nixos/home {
               inherit pkgs inputs hostname computerType;
             });

@@ -12,12 +12,14 @@
     #(import ./apps/zsh.nix { inherit pkgs config; filesource = ../../oh-my-zsh; })
     #(import ./apps/neovim.nix { inherit pkgs inputs; filesource = ../../neovim; })
     inputs.zsh.zsh
-    inputs.neovim.neovim
-    inputs.neovim.lsp
+    #inputs.neovim.neovim
+    #inputs.neovim.lsp
     #inputs.firefox.firefox
     #./apps/obs.nix
     #./apps/kitty.nix
     ./apps/isakssons.nix
+    (import ./apps/nixvim {inherit inputs pkgs;})
+    #./apps/hyprland/hyprland.nix
     #(import ./apps/firefox.nix { inherit pkgs inputs; })
 
     # Package groups

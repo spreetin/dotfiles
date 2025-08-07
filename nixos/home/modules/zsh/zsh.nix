@@ -8,10 +8,10 @@
     zsh-syntax-highlighting
   ];
 
-  home.file.".oh-my-zsh/custom" = {
-    source = "${filesource}/custom";
-    recursive = true;
-  };
+  #home.file.".oh-my-zsh/custom" = {
+  #  source = "${filesource}/custom";
+  #  recursive = true;
+  #};
 
   programs = {
     zsh = {
@@ -28,6 +28,8 @@
       };
       shellAliases = {
         startflake = "nix flake init -t github:hercules-ci/flake-parts";
+        icat = "kitten icat";
+        sshk = "kitten ssh";
       };
     };
     zoxide = {

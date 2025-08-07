@@ -2,7 +2,8 @@
 
 {
   home.packages = with pkgs; [
-    teams
+    #teams
     teams-for-linux
+    anydesk
   ];
 }
