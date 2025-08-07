@@ -10,5 +10,6 @@
     hyphen
     hyphenDicts.de_DE
     hyphenDicts.en_US
+    onlyoffice-desktopeditors
   ];
 }

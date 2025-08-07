@@ -5,5 +5,6 @@
     gimp3-with-plugins
     imagemagick
     image-roll
+    krita
   ];
 }
