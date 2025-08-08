@@ -150,6 +150,54 @@
       action.__raw = ''function() Snacks.notifier.hide() end'';
       options.desc = "Dismiss All Notifications";
     }
+    {
+      mode = "n";
+      key = "<leader>st";
+      action.__raw = ''function() Snacks.picker.todo_comments() end'';
+      options.desc = "Todo";
+    }
+    {
+      mode = "n";
+      key = "<leader>sT";
+      action.__raw = ''function() Snacks.picker.todo_comments({keywords = { "TODO", "FIX", "FIXME"}}) end'';
+      options.desc = "Todo/Fix/Fixme";
+    }
+    {
+      mode = "n";
+      key = "<leader>su";
+      action.__raw = ''function() Snacks.picker.undo() end'';
+      options.desc = "Undo Tree";
+    }
+    {
+      mode = "n";
+      key = "<leader>sq";
+      action.__raw = ''function() Snacks.picker.qflist() end'';
+      options.desc = "Quickfix List";
+    }
+    {
+      mode = "n";
+      key = "<leader>si";
+      action.__raw = ''function() Snacks.picker.icons() end'';
+      options.desc = "Icons";
+    }
+    {
+      mode = "n";
+      key = "<leader>sd";
+      action.__raw = ''function() Snacks.picker.diagnostics() end'';
+      options.desc = "Diagnostics";
+    }
+    {
+      mode = "n";
+      key = "<leader>sB";
+      action.__raw = ''function() Snacks.picker.grep_buffers() end'';
+      options.desc = "Grep Open Buffers";
+    }
+    {
+      mode = "n";
+      key = "<leader>sg";
+      action.__raw = ''function() Snacks.picker.grep() end'';
+      options.desc = "Grep";
+    }
   ];
   plugins.snacks.enable = true;
 }

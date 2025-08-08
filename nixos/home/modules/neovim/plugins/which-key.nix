@@ -33,8 +33,20 @@
           }
           {
             __unkeyed-1 = "<leader>s";
-            group = "LSP Symbols";
-            icon = "󰙲 ";
+            group = "Search";
+            icon = " ";
+            mode = "n";
+          }
+          {
+            __unkeyed-1 = "<leader>d";
+            group = "Debug";
+            icon = " ";
+            mode = "n";
+          }
+          {
+            __unkeyed-1 = "<leader>u";
+            group = "Clear";
+            icon = " ";
             mode = "n";
           }
         ];

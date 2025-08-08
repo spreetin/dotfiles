@@ -6,6 +6,20 @@
 }:
 
 {
+  extraPackages = with pkgs; [
+    clj-kondo
+    cmake-lint
+    cppcheck
+    golangci-lint
+    hlint
+    html-tidy
+    luajitPackages.luacheck
+    markdownlint-cli
+    nodePackages.jshint
+    nodePackages.jsonlint
+    pylint
+    yamllint
+  ];
   plugins.lint = {
     enable = true;
     lintersByFt = {

@@ -6,6 +6,16 @@
 }:
 
 {
+  extraPackages = with pkgs; [
+    black
+    cmake-format
+    gofumpt
+    nixfmt-rfc-style
+    rustfmt
+    stylua
+    vimPlugins.vim-clang-format
+    zprint
+  ];
   plugins.conform-nvim = {
     enable = true;
     settings = {

@@ -1,4 +1,8 @@
 {
+  plugins = {
+    clangd-extensions.enable = true;
+    lspconfig.enable = true;
+  };
   lsp = {
     servers = {
       asm_lsp.enable = true;
@@ -21,9 +25,17 @@
       zls.enable = true;
     };
   };
-  plugins.lsp = {
-    keymaps.lspBuf = {
-      "<F4>" = "switch_source_header"; # "ClangdSwitchSourceHeader";
-    };
-  };
+  #plugins.lsp = {
+  #  keymaps.lspBuf = {
+  #    "<F4>" = ":ClangdSwitchSourceHeader";
+  #  };
+  #};
+  keymaps = [
+    {
+      mode = "n";
+      key = "<F4>";
+      action = "<cmd>ClangdSwitchSourceHeader";
+      options.desc = "Switch Header/Source";
+    }
+  ];
 }

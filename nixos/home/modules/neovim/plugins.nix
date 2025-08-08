@@ -1,8 +1,11 @@
 {
   imports = [
     ./plugins/conform.nix
+    ./plugins/dap.nix
     ./plugins/lint.nix
+    ./plugins/mini.nix
     ./plugins/snacks.nix
+    ./plugins/telescope.nix
     ./plugins/which-key.nix
   ];
 
@@ -21,20 +24,9 @@
         { name = "treesitter"; }
       ];
     };
-    dashboard = {
-      enable = true;
-    };
-    dap.enable = true;
-    dap-lldb.enable = true;
-    dap-python.enable = true;
-    dial = {
-      enable = true;
-      # TODO: set keybinds
-    };
-    flash = {
-      enable = true;
-      # TODO: check that keybinds work
-    };
+    dashboard.enable = true;
+    dial.enable = true;
+    flash.enable = true;
     friendly-snippets.enable = true;
     gitsigns.enable = true;
     grug-far.enable = true;
@@ -48,27 +40,6 @@
       enable = true;
       autoLoad = true;
     };
-    mini = {
-      enable = true;
-      modules = {
-        ai = {
-          n_lines = 500;
-          search_method = "cover_or_next";
-        };
-        bufremove = {
-          silent = true;
-        };
-        comment = {
-        };
-        indentscope = {
-        };
-        pairs = {
-        };
-        surround = {
-          n_lines = 100;
-        };
-      };
-    };
     neo-tree.enable = true;
     nix-develop.enable = true;
     nix.enable = true;
@@ -80,16 +51,6 @@
     nvim-surround.enable = true;
     persistence.enable = true;
     spectre.enable = true;
-    telescope = {
-      enable = true;
-      keymaps = {
-        "<leader>fg" = "live_grep";
-      };
-      extensions = {
-        fzf-native.enable = true;
-        undo.enable = true;
-      };
-    };
     treesitter = {
       enable = true;
       settings = {
@@ -103,6 +64,7 @@
     trouble.enable = true;
     ts-autotag.enable = true;
     ts-context-commentstring.enable = true;
+    undotree.enable = true;
     web-devicons.enable = true;
   };
 }
