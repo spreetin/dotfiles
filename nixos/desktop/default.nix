@@ -7,7 +7,7 @@
     ./hosts/${hostname}.nix
     ./../apps/gaming.nix
     ./../apps/hyprland.nix
-  ]; 
+  ];
 
   programs = {
     virt-manager.enable = true;

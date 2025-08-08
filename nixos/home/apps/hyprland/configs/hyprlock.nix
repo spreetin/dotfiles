@@ -1,3 +1,5 @@
+{ config, pkgs, ... }:
+
 {
   programs.hyprlock = {
     enable = true;
@@ -7,16 +9,17 @@
       };
       background = {
         monitor = "";
-        path = "$CURRENT_WALLPAPER";
+        path = "${pkgs.sddm-chili-theme}/share/sddm/themes/chili/assets/background.jpg";
         blur_size = 3;
         blur_passes = 2;
         noise = "0.0117";
       };
       label = [
         {
+          # rgb(9A5BDD)
           monitor = "";
           text = "cmd[update:1000] echo \"$(date +\"%H\"):\"";
-          color = "rgb(9A5BDD)";
+          color = "rgb(CCCCCC)";
           font_size = 240;
           font_family = "JetBrainsMono Nerd Font ExtraBold";
           position = "-450, -200";
@@ -26,7 +29,7 @@
         {
           monitor = "";
           text = "cmd[update:1000] echo \"$(date +\"%M\")\"";
-          color = "rgb(9A5BDD)";
+          color = "rgb(CCCCCC)";
           font_size = 240;
           font_family = "JetBrainsMono Nerd Font ExtraBold";
           position = "0, -200";
@@ -36,7 +39,7 @@
         {
           monitor = "";
           text = "cmd[update:1000] echo \":$(date +\"%S\")\"";
-          color = "rgb(9A5BDD)";
+          color = "rgb(CCCCCC)";
           font_size = 240;
           font_family = "JetBrainsMono Nerd Font ExtraBold";
           position = "450, -200";
@@ -46,7 +49,7 @@
         {
           monitor = "";
           text = "  $USER";
-          color = "rgb(9A5BDD)";
+          color = "rgb(CCCCCC)";
           font_size = 24;
           font_family = "Victor Mono Bold Oblique";
           position = "0, 280";
@@ -56,7 +59,7 @@
         {
           monitor = "";
           text = "$LAYOUT";
-          color = "rgb(9A5BDD)";
+          color = "rgb(CCCCCC)";
           font_size = 12;
           font_family = "Victor Mono Bold Oblique";
           position = "0, 80";
@@ -65,8 +68,8 @@
         }
         {
           monitor = "";
-          text = "cmd[update:60000] echo \"<b> \"$(uptime -p || $Scripts/UptimeNixOS.sh)\" </b>\"";
-          color = "rgb(9A5BDD)";
+          text = "cmd[update:60000] echo \"<b> \"$(uptime -p || ${config.xdg.configHome}/scripts/uptime.sh)\" </b>\"";
+          color = "rgb(CCCCCC)";
           font_size = 18;
           font_family = "Victor Mono Bold Oblique";
           position = "0, 0";
@@ -76,7 +79,7 @@
         {
           monitor = "";
           text = "cmd[update:3600000] [ -f \"$HOME/.cache/.weather_cache\" ] && cat  \"$HOME/.cache/.weather_cache\"";
-          color = "rgb(9A5BDD)";
+          color = "rgb(CCCCCC)";
           font_size = 18;
           font_family = "Victor Mono Bold Oblique";
           position = "50, 0";
@@ -91,9 +94,9 @@
         dots_size = "0.2";
         dots_spacing = "0.2";
         dots_center = true;
-        outer_color = "rgb(9A5BDD)";
+        outer_color = "rgb(CCCCCC)";
         inner_color = "rgba(255, 255, 255, 0.1)";
-        font_color = "rgb(9A5BDD)";
+        font_color = "rgb(CCCCCC)";
         capslock_color = "rgb(255, 255, 255)";
         fade_on_empty = false;
         font_family = "Victor Mono Bold Oblique";

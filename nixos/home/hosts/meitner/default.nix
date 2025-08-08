@@ -10,7 +10,7 @@
   ];
 
   home.file.".config/hypr/local/local.conf" = {
-	  source = ../../../../hypr_host/meitner.conf;
+    source = ../../../../hostfiles/hypr/meitner.conf;
   };
 
   wayland.windowManager.hyprland = {

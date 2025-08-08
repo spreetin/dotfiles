@@ -10,7 +10,7 @@
   ];
 
   home.file.".config/hypr/local/local.conf" = {
-    source = ../../../../hypr_host/chandrasekhar.conf;
+    source = ../../../../hostfiles/hypr/chandrasekhar.conf;
   };
   wayland.windowManager.hyprland = {
     settings = {

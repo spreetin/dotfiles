@@ -1,4 +1,9 @@
-{ pkgs, inputs, filesource, hostname }:
+{
+  pkgs,
+  inputs,
+  filesource,
+  hostname,
+}:
 
 { config, pkgs, ... }:
 {
@@ -7,7 +12,8 @@
     ./configs/hypridle.nix
     ./configs/hyprlock.nix
     ./configs/hyprpaper.nix
-    (import ./configs/waybar.nix {inherit hostname;})
+    (import ./configs/waybar.nix { inherit hostname; })
+    ./configs/wlogout.nix
   ];
 
   home.packages = with pkgs; [
@@ -38,11 +44,11 @@
   ];
 
   # Hyprland
-  home.file.".config/hypr/scripts" = {
-    source = "${filesource}/hypr/scripts";
+  home.file."${config.xdg.configHome}/hypr/scripts" = {
+    source = ../../../../scripts/hypr;
     executable = true;
   };
-  home.file.".config/hypr/wallpaper".source = "${filesource}/hypr/wallpaper";
+  home.file."${config.xdg.configHome}/hypr/wallpaper".source = ../../../../assets/wallpaper;
 
   gtk = {
     enable = true;

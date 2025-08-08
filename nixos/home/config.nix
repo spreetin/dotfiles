@@ -1,6 +1,11 @@
 { pkgs, inputs }:
 
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   #imports = [ inputs.ags.homeManagerModules.default ];
@@ -31,10 +36,10 @@
     #  ];
     #};
     #mangohud = {
-      #enable = true;
-      #enableSessionWide = true;
-      #settings = {
-      #};
+    #enable = true;
+    #enableSessionWide = true;
+    #settings = {
+    #};
     #};
   };
   home.file.".local/bin/flake-update" = {

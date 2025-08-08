@@ -1,7 +1,0 @@
-@define-color textColor #9090e0;
-@define-color darkTextColor #66f;
-@define-color moduleBack1 rgba(30, 30, 80, 0.8);
-@define-color moduleBack2 rgba(0, 0, 20, 0.9);
-@define-color moduleBack3 rgba(0, 0, 0, 0.1);
-@define-color moduleBackground @moduleBack2;
-@define-color invisible rgba(0, 0, 0, 0);

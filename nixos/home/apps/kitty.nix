@@ -4,9 +4,10 @@
   #home.packages = with pkgs; [
   #    kitty
   #];
-  home.file.".config/kitty/open-actions.conf".source = ../../../kitty/open-actions.conf;
-  home.file.".config/kitty/ssh.conf".source = ../../../kitty/ssh.conf;
-  home.file.".config/kitty/theme.conf".source = ../../../kitty/theme.conf;
+  home.file."${config.xdg.configHome}/kitty/open-actions.conf".source =
+    ../../../configs/kitty/open-actions.conf;
+  home.file."${config.xdg.configHome}/kitty/ssh.conf".source = ../../../configs/kitty/ssh.conf;
+  #home.file."${config.xdf.configHome}/kitty/theme.conf".source = ../../../kitty/theme.conf;
 
   programs.kitty = {
     enable = true;
@@ -43,37 +44,38 @@
       editor = "nvim";
       kitty_mod = "ctrl+shift";
     };
+    themeFile = "Catppuccin-Mocha";
     keybindings = {
-      "cmd+f1"                = "launch_tab mc";
-      "cmd+f2"                = "launch_tab nvim";
-      "cmd+f5"                = "launch_tab kitten ssh david@servus";
-      "cmd+f6"                = "launch_tab kitten ssh david@deck";
-      "kitty_mod+c"           = "copy_to_clipboard";
-      "cmd+c"                 = "copy_to_clipboard";
-      "kitty_mod+v"           = "paste_from_clipboard";
-      "cmd+v"                 = "paste_from_clipboard";
-      "kitty_mod+s"           = "paste_from_selection";
-      "shift+insert"          = "paste_from_selection";
-      "kitty_mod+up"          = "scroll_line_up";
-      "cmd+up"                = "scroll_line_up";
-      "kitty_mod+down"        = "scroll_line_down";
-      "cmd+down"              = "scroll_line_down";
-      "kitty_mod+page_up"     = "scroll_page_up";
-      "cmd+page_up"           = "scroll_page_up";
-      "kitty_mod+page_down"   = "scroll_page_down";
-      "cmd+page_down"         = "scroll_page_down";
-      "kitty_mod+home"        = "scroll_home";
-      "cmd+home"              = "scroll_home";
-      "kitty_mod+end"         = "scroll_end";
-      "cmd+end"               = "scroll_end";
-      "kitty_mod+right"       = "next_tab";
-      "ctrl+tab"              = "next_tab";
-      "kitty_mod+left"        = "previous_tab";
-      "ctrl+shift+tab"        = "previous_tab";
-      "kitty_mod+t"           = "new_tab";
-      "cmd+t"                 = "new_tab";
-      "kitty_mod+q"           = "close_tab";
-      "cmw+w"                 = "close_tab";
+      "cmd+f1" = "launch_tab mc";
+      "cmd+f2" = "launch_tab nvim";
+      "cmd+f5" = "launch_tab kitten ssh david@servus";
+      "cmd+f6" = "launch_tab kitten ssh david@deck";
+      "kitty_mod+c" = "copy_to_clipboard";
+      "cmd+c" = "copy_to_clipboard";
+      "kitty_mod+v" = "paste_from_clipboard";
+      "cmd+v" = "paste_from_clipboard";
+      "kitty_mod+s" = "paste_from_selection";
+      "shift+insert" = "paste_from_selection";
+      "kitty_mod+up" = "scroll_line_up";
+      "cmd+up" = "scroll_line_up";
+      "kitty_mod+down" = "scroll_line_down";
+      "cmd+down" = "scroll_line_down";
+      "kitty_mod+page_up" = "scroll_page_up";
+      "cmd+page_up" = "scroll_page_up";
+      "kitty_mod+page_down" = "scroll_page_down";
+      "cmd+page_down" = "scroll_page_down";
+      "kitty_mod+home" = "scroll_home";
+      "cmd+home" = "scroll_home";
+      "kitty_mod+end" = "scroll_end";
+      "cmd+end" = "scroll_end";
+      "kitty_mod+right" = "next_tab";
+      "ctrl+tab" = "next_tab";
+      "kitty_mod+left" = "previous_tab";
+      "ctrl+shift+tab" = "previous_tab";
+      "kitty_mod+t" = "new_tab";
+      "cmd+t" = "new_tab";
+      "kitty_mod+q" = "close_tab";
+      "cmw+w" = "close_tab";
     };
     extraConfig = "
       # - Use additional nerd symbols

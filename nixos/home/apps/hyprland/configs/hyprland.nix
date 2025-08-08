@@ -1,4 +1,9 @@
-{ config, pkgs, options, ... }:
+{
+  config,
+  pkgs,
+  options,
+  ...
+}:
 let
   xdg = config.xdg;
 in
@@ -13,17 +18,17 @@ in
 
     # Other variables
     "$wall_dir" = "$HOME/Bilder/Wallpapers";
-    "$lock" = "pidof hyprlock || hyprlock -q";  #"${xdg.configHome}/hypr/scripts/LockScreen.sh";
-    "$scriptsDir" = "${xdg.configHome}/hypr/scripts";
+    "$lock" = "pidof hyprlock || hyprlock -q"; # "${xdg.configHome}/hypr/scripts/LockScreen.sh";
+    "$scriptsDir" = "${xdg.configHome}/scripts/hypr";
 
     # Autostart
     exec-once = [
       "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       "hyprpaper"
-      "${xdg.configHome}/waybar/launch.sh"
+      "${xdg.configHome}/scripts/waybar/launch.sh"
       "swww-deamon --format xrgb"
-      "${xdg.configHome}/hypr/scripts/Polkit.sh"
+      "${xdg.configHome}/scripts/scripts/hypr/Polkit.sh"
       "nm-applet --indicator"
       "swaync"
       "bluemon-applet"
@@ -92,10 +97,10 @@ in
       "$mainMod, R, exec, $menu --show drun"
       "$mainMod, P, pseudo,"
       "CTRL ALT, J, togglesplit"
-      "$mainMod, O, exec, ${xdg.configHome}/waybar/launch.sh"
+      "$mainMod, O, exec, ${xdg.configHome}/scripts/waybar/launch.sh"
       "$mainMod, M, exec, killall .waybar-wrapped || waybar"
       "$mainMod SHIFT, Q, exec, $scriptsDir/KillActiveProcess.sh"
-      "CTRL ALT, L, exec, $lock" #$scriptsDir/LockScreen.sh"
+      "CTRL ALT, L, exec, $lock" # $scriptsDir/LockScreen.sh"
       "CTRL ALT, P, exec, wlogout"
       "$mainMod SHIFT, N, exec, swaync-client -t -sw"
       "$mainMOD ALT, R, exec, $scriptsDir/Refresh.sh"
@@ -228,7 +233,7 @@ in
       "opacity 1.0, tag:video"
       # Positions
       "center, class:^(pavucontrol|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$"
-      # Floating 
+      # Floating
       "float, tag:settings*"
       "float, class:(org.gnome.Calculator), title:(Calculator)"
       "float, class:^([Qq]alculate-gtk)$"
