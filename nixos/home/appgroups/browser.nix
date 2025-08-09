@@ -5,5 +5,6 @@
     browsh
     elinks
     librewolf
+    chromium
   ];
 }
