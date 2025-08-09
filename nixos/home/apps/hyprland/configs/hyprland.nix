@@ -88,7 +88,7 @@ in
     "$mainMod" = "SUPER";
     bind = [
       "$mainMod, D, exec, pkill $menu || true && $menu -show drun -modi drun,filebrowser,run,window"
-      "$mainMod, E, exec, $browser"
+      "$mainMod, E, exec, librewolf"
       "$mainMod, A, exec, pkill $menu || true && ags toggle 'overview'"
       "$mainMod, Return, exec, kitty"
       "$mainMod, C, killactive,"
@@ -172,7 +172,9 @@ in
       "$mainMod ALT, right, swapwindow, r"
       "$mainMod ALT, up, swapwindow, u"
       "$mainMod ALT, down, swapwindow, d"
-
+      # Brightness control
+      ", code:232, exec, $scriptsDir/Brightness.sh dec"
+      ", code:233, exec, $scriptsDir/Brightness.sh inc"
     ];
     bindm = [
       # Move/resize

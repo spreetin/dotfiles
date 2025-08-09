@@ -14,6 +14,7 @@
     ./configs/hyprpaper.nix
     (import ./configs/waybar.nix { inherit hostname; })
     ./configs/wlogout.nix
+    ./configs/swaync.nix
   ];
 
   home.packages = with pkgs; [
