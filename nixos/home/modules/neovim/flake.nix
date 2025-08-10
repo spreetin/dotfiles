@@ -6,6 +6,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-parts.url = "github:hercules-ci/flake-parts";
+    vim-be-better = {
+      url = "github:szymonwilczek/vim-be-better";
+      flake = false;
+    };
   };
 
   outputs =
@@ -25,9 +29,9 @@
           nixvim' = nixvim.legacyPackages.${system};
           nixvimModule = {
             inherit system;
-            module = ./nixvim.nix;
+            module = import ./nixvim.nix;
             extraSpecialArgs = {
-              #
+              inherit inputs;
             };
           };
           nvim = nixvim'.makeNixvimWithModule nixvimModule;

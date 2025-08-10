@@ -1,29 +1,30 @@
 {
   imports = [
+    ./plugins/be-better.nix
+    ./plugins/blink-cmp.nix
     ./plugins/conform.nix
     ./plugins/dap.nix
     ./plugins/lint.nix
     ./plugins/mini.nix
     ./plugins/snacks.nix
     ./plugins/telescope.nix
+    ./plugins/treesitter.nix
     ./plugins/which-key.nix
   ];
 
   plugins = {
     actions-preview.enable = true;
-    blink-cmp.enable = true;
     bufferline.enable = true;
-    clangd-extensions.enable = true;
     cmake-tools.enable = true;
-    cmp = {
-      enable = true;
-      autoEnableSources = true;
-      settings.sources = [
-        { name = "buffer"; }
-        { name = "nvim_lsp"; }
-        { name = "treesitter"; }
-      ];
-    };
+    #cmp = {
+    #  enable = true;
+    #  autoEnableSources = true;
+    #  settings.sources = [
+    #    { name = "buffer"; }
+    #    { name = "nvim_lsp"; }
+    #    { name = "treesitter"; }
+    #  ];
+    #};
     dashboard.enable = true;
     dial.enable = true;
     flash.enable = true;
@@ -47,23 +48,11 @@
     notify.enable = true;
     nui.enable = true;
     nvim-autopairs.enable = true;
-    nvim-snippets.enable = true;
+    #nvim-snippets.enable = true;
     nvim-surround.enable = true;
     persistence.enable = true;
     spectre.enable = true;
-    treesitter = {
-      enable = true;
-      settings = {
-        indent.enable = true;
-        highlight.enable = true;
-      };
-    };
-    treesitter-context.enable = true;
-    treesitter-textobjects.enable = true;
-    treesitter-refactor.enable = true;
     trouble.enable = true;
-    ts-autotag.enable = true;
-    ts-context-commentstring.enable = true;
     undotree.enable = true;
     web-devicons.enable = true;
   };
