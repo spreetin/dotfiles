@@ -30,6 +30,7 @@
         startflake = "nix flake init -t github:hercules-ci/flake-parts";
         icat = "kitten icat";
         sshk = "kitten ssh";
+        p_kina = "ssh -L 8008:192.168.1.196:8006 imetall";
         p_sovjet = "ssh -L 8006:192.168.1.61:8006 imetall";
         p_kuba = "ssh -L 8007:192.168.1.12:8006 imetall";
         p_kvm = "ssh -L 8001:192.168.1.60:80 imetall";
