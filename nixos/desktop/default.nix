@@ -7,6 +7,7 @@
     ./hosts/${hostname}.nix
     ./../apps/gaming.nix
     ./../apps/hyprland.nix
+    ./plymouth.nix
   ];
 
   programs = {
