@@ -1,4 +1,9 @@
-{ config, pkgs, options, ... }:
+{
+  config,
+  pkgs,
+  options,
+  ...
+}:
 
 {
   catppuccin = {
@@ -16,6 +21,7 @@
     swaync.enable = true;
     tmux.enable = true;
     wlogout.enable = true;
+    zellij.enable = true;
     zsh-syntax-highlighting.enable = true;
   };
 }
