@@ -20,10 +20,6 @@
       url = "github:KZDKM/Hyprspace";
       inputs.hyprland.follows = "hyprland";
     };
-    #neovim = {
-    #  url = "path:./nixos/home/modules/neovim";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,13 +28,14 @@
       url = "github:szymonwilczek/vim-be-better";
       flake = false;
     };
+    firefox-addons = {
+      url = "github:nix-community/nur-combined?dir=repos/rycee/pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     firefox = {
       url = "path:./nixos/home/modules/firefox";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    zsh = {
-      url = "path:./nixos/home/modules/zsh";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.firefox-addons.follows = "nixpkgs";
     };
     dotfiles_hidden = {
       url = "git+ssh://git@github.com/spreetin/dotfiles_hidden";
