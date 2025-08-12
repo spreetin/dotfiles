@@ -28,7 +28,7 @@ in
       "hyprpaper"
       "${xdg.configHome}/scripts/waybar/launch.sh"
       "swww-deamon --format xrgb"
-      "${xdg.configHome}/scripts/scripts/hypr/Polkit.sh"
+      "${xdg.configHome}/scripts/hypr/Polkit.sh"
       "nm-applet --indicator"
       "swaync"
       "bluemon-applet"
@@ -88,8 +88,9 @@ in
     "$mainMod" = "SUPER";
     bind = [
       "$mainMod, D, exec, pkill $menu || true && $menu -show drun -modi drun,filebrowser,run,window"
-      "$mainMod, E, exec, librewolf"
+      "$mainMod, W, exec, librewolf"
       "$mainMod, A, exec, pkill $menu || true && ags toggle 'overview'"
+      #"$mainMod, F, overview:toggle,"
       "$mainMod, Return, exec, kitty"
       "$mainMod, C, killactive,"
       "$mainMod, E, exec, $fileManager"
@@ -104,7 +105,7 @@ in
       "CTRL ALT, P, exec, wlogout"
       "$mainMod SHIFT, N, exec, swaync-client -t -sw"
       "$mainMOD ALT, R, exec, $scriptsDir/Refresh.sh"
-      "$mainMod, S, exec, $scriptsDir/RofiSearch.sh"
+      #"$mainMod, S, exec, $scriptsDir/RofiSearch.sh"
       "$mainMod SHIFT, G, exec, $scriptsDir/GameMode.sh"
       "$mainMod ALT, V, exec, $scriptsDir/ClipManager.sh"
       "$mainMod SHIFT, F, fullscreen"

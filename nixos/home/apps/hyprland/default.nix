@@ -76,5 +76,8 @@
       #inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
       #inputs.hyprfocus.packages.${pkgs.system}.default
     ];
+    #settings.exec-once = [
+    #  "hyprctl plugin load ${inputs.Hyprspace.packages.${pkgs.system}.Hyprspace}/lib/libHyperspace.so"
+    #];
   };
 }

@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgslib.url = "github:nix-community/nixpkgs.lib";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,9 +20,17 @@
       url = "github:KZDKM/Hyprspace";
       inputs.hyprland.follows = "hyprland";
     };
-    neovim = {
-      url = "path:./nixos/home/modules/neovim";
+    #neovim = {
+    #  url = "path:./nixos/home/modules/neovim";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
+    nixvim = {
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    vim-be-better = {
+      url = "github:szymonwilczek/vim-be-better";
+      flake = false;
     };
     firefox = {
       url = "path:./nixos/home/modules/firefox";
@@ -46,6 +55,7 @@
     {
       self,
       nixpkgs,
+      nixpkgslib,
       home-manager,
       catppuccin,
       sops-nix,
@@ -68,7 +78,7 @@
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
               home-manager.extraSpecialArgs = {
-                inherit hostname;
+                inherit hostname inputs computerType;
               };
               home-manager.users.david = (
                 import ./nixos/home {

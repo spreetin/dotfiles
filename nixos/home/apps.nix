@@ -7,10 +7,20 @@
   ...
 }:
 
+let
+  nixvim = inputs.nixvim.legacyPackages.${pkgs.system}.makeNixvimWithModule {
+    #system = pkgs.system;
+    module = import ./modules/neovim/nixvim.nix;
+    extraSpecialArgs = {
+      inherit inputs;
+    };
+  };
+in
 {
   imports = [
     # Specific apps
-    inputs.zsh.zsh
+    #inputs.zsh.zsh
+    ./modules/zsh/zsh.nix
     ./apps/isakssons.nix
 
     # Package groups
@@ -32,12 +42,13 @@
     gnused
     jq
     mc
-    neofetch
+    fastfetch
     nix-output-monitor
     ripgrep
     tldr
     which
-    inputs.neovim.packages.x86_64-linux.default
+    nixvim
+    #inputs.neovim.packages.x86_64-linux.default
     #inputs.gophertube.packages.x86_64-linux.default
   ];
 }

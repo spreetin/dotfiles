@@ -89,7 +89,7 @@ in
         ];
         modules-center = [
           "custom/empty"
-          "hyprland/workspace#rw"
+          "hyprland/workspaces#rw"
           "custom/empty"
         ];
         modules-right = [
