@@ -41,6 +41,22 @@
     #settings = {
     #};
     #};
+    yazi = {
+      enable = true;
+      plugins = {
+        # with pkgs.yaziPlugins; {
+        git = pkgs.yaziPlugins.git;
+        ouch = pkgs.yaziPlugins.ouch;
+        glow = pkgs.yaziPlugins.glow;
+        mount = pkgs.yaziPlugins.mount;
+        chmod = pkgs.yaziPlugins.chmod;
+        yatline = pkgs.yaziPlugins.yatline;
+        lazygit = pkgs.yaziPlugins.lazygit;
+        mediainfo = pkgs.yaziPlugins.mediainfo;
+        relative-motions = pkgs.yaziPlugins.relative-motions;
+      };
+      #flavors = { }
+    };
   };
   home.file.".local/bin/flake-update" = {
     source = ../../scripts/flake-update;
