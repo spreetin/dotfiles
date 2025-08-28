@@ -1,11 +1,14 @@
-{ pkgs, inputs }:
-
-{ config, pkgs, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
-    (import ./config.nix { inherit pkgs inputs; })
-    (import ./apps.nix { inherit pkgs inputs; })
+    ./config.nix
+    ./apps.nix
   ];
   home.file."${config.xdg.configHome}/scripts" = {
     source = ../../scripts;

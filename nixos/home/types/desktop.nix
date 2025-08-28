@@ -1,17 +1,13 @@
 {
-  pkgs,
   inputs,
   hostname,
+  pkgs,
+  ...
 }:
-
-{ config, pkgs, ... }:
 
 {
   imports = [
-    (import ./../apps/hyprland {
-      inherit pkgs inputs hostname;
-      filesource = ../../..;
-    })
+    ./../apps/hyprland
     #inputs.hyprland.homeManagerModules.hyprland
     inputs.firefox.firefox
     ./../apps/obs.nix

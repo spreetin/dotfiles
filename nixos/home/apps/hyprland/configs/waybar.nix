@@ -1,6 +1,4 @@
-{ hostname }:
-
-{ config, pkgs, ... }:
+{ hostname, config, ... }:
 let
   xdg = config.xdg;
   power-mods = (import ./waybar/power.nix { xdg = config.xdg; });

@@ -1,6 +1,8 @@
-{ hostname }:
-
-{ config, pkgs, ... }:
+{
+  hostname,
+  pkgs,
+  ...
+}:
 
 {
   imports = [

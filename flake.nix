@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgslib.url = "github:nix-community/nixpkgs.lib";
+    #nixpkgslib.url = "github:nix-community/nixpkgs.lib";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -41,6 +41,10 @@
       url = "git+ssh://git@github.com/spreetin/dotfiles_hidden";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    optnix = {
+      url = "github:water-sucks/optnix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     catppuccin.url = "github:catppuccin/nix";
     #gophertube = {
     #  url = "github:/KrishnaSSH/GopherTube";
@@ -50,9 +54,7 @@
 
   outputs =
     {
-      self,
       nixpkgs,
-      nixpkgslib,
       home-manager,
       catppuccin,
       sops-nix,
@@ -65,8 +67,11 @@
         { hostname, computerType }:
         nixpkgs.lib.nixosSystem {
           inherit system;
+          specialArgs = {
+            inherit hostname inputs computerType;
+          };
           modules = [
-            (import ./nixos { inherit hostname computerType; })
+            ./nixos
             sops-nix.nixosModules.sops
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
@@ -77,16 +82,7 @@
               home-manager.extraSpecialArgs = {
                 inherit hostname inputs computerType;
               };
-              home-manager.users.david = (
-                import ./nixos/home {
-                  inherit
-                    pkgs
-                    inputs
-                    hostname
-                    computerType
-                    ;
-                }
-              );
+              home-manager.users.david = ./nixos/home;
             }
             (
               { ... }:

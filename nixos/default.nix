@@ -1,10 +1,12 @@
-{ hostname, computerType }:
-
-{ config, pkgs, options, ... }:
+{
+  computerType,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
-    (import ./${computerType} { inherit hostname; })
+    ./${computerType}
     ./config/boot.nix
     ./config/catppuccin.nix
     ./config/fonts.nix

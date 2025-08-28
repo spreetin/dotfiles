@@ -1,18 +1,16 @@
 {
-  pkgs,
-  inputs,
-  filesource,
   hostname,
+  config,
+  pkgs,
+  ...
 }:
-
-{ config, pkgs, ... }:
 {
   imports = [
     ./configs/hyprland.nix
     ./configs/hypridle.nix
     ./configs/hyprlock.nix
     ./configs/hyprpaper.nix
-    (import ./configs/waybar.nix { inherit hostname; })
+    ./configs/waybar.nix
     ./configs/wlogout.nix
     ./configs/swaync.nix
   ];
