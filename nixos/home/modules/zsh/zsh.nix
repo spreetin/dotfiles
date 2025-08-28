@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     oh-my-zsh
     zsh-syntax-highlighting
+    fd
   ];
 
   #home.file.".oh-my-zsh/custom" = {
@@ -39,6 +40,16 @@
       enable = true;
       enableZshIntegration = true;
       options = [ "--cmd cd" ];
+    };
+    tmux = {
+      enable = true;
+      baseIndex = 1;
+      clock24 = true;
+      keyMode = "vi";
+      mouse = true;
+      prefix = "C-a";
+      sensibleOnTop = true;
+      shell = "${pkgs.zsh}/bin/zsh";
     };
   };
 }
