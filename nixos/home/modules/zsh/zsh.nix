@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     oh-my-zsh
     zsh-syntax-highlighting
+    fd
   ];
 
   #home.file.".oh-my-zsh/custom" = {
@@ -58,6 +59,16 @@
       #config = {
       #  theme = "Catppuccin";
       #};
+    };
+    tmux = {
+      enable = true;
+      baseIndex = 1;
+      clock24 = true;
+      keyMode = "vi";
+      mouse = true;
+      prefix = "C-a";
+      sensibleOnTop = true;
+      shell = "${pkgs.zsh}/bin/zsh";
     };
   };
 }

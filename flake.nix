@@ -74,16 +74,22 @@
             ./nixos
             sops-nix.nixosModules.sops
             catppuccin.nixosModules.catppuccin
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "backup";
-              home-manager.extraSpecialArgs = {
-                inherit hostname inputs computerType;
-              };
-              home-manager.users.david = ./nixos/home;
-            }
+            (
+              { options, ... }:
+              {
+                imports = [ home-manager.nixosModules.home-manager ];
+                home-manager = {
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+                  backupFileExtension = "backup";
+                  extraSpecialArgs = {
+                    inherit hostname inputs computerType;
+                    nixosOptions = options;
+                  };
+                  users.david = ./nixos/home;
+                };
+              }
+            )
             (
               { ... }:
               {
