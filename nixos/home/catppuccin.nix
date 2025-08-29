@@ -25,7 +25,7 @@
     tmux.enable = true;
     wlogout.enable = true;
     yazi.enable = true;
-    zellij.enable = true;
+    #zellij.enable = true;
     zsh-syntax-highlighting.enable = true;
   };
 }

@@ -19,7 +19,6 @@ in
     #inputs.zsh.zsh
     ./modules/zsh/zsh.nix
     ./apps/isakssons.nix
-    ./apps/zellij.nix
 
     # Package groups
     ./appgroups/compression.nix
@@ -38,6 +37,7 @@ in
     fzf
     gnupg
     gnused
+    libsecret
     jq
     mc
     fastfetch
