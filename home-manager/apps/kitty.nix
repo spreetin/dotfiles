@@ -5,8 +5,8 @@
   #    kitty
   #];
   home.file."${config.xdg.configHome}/kitty/open-actions.conf".source =
-    ../../../configs/kitty/open-actions.conf;
-  home.file."${config.xdg.configHome}/kitty/ssh.conf".source = ../../../configs/kitty/ssh.conf;
+    ../../configs/kitty/open-actions.conf;
+  home.file."${config.xdg.configHome}/kitty/ssh.conf".source = ../../configs/kitty/ssh.conf;
   #home.file."${config.xdf.configHome}/kitty/theme.conf".source = ../../../kitty/theme.conf;
 
   programs.kitty = {

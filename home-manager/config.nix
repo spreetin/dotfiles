@@ -16,7 +16,7 @@
   #  source = ../../kitty;
   #  recursive = true;
   #};
-  home.file.".config/ags".source = ../../ags;
+  home.file.".config/ags".source = ../ags;
 
   programs = {
     git = {
@@ -55,7 +55,7 @@
     };
   };
   home.file.".local/bin/flake-update" = {
-    source = ../../scripts/flake-update;
+    source = ../scripts/flake-update;
     executable = true;
   };
 }

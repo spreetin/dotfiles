@@ -11,7 +11,7 @@
     ./apps.nix
   ];
   home.file."${config.xdg.configHome}/scripts" = {
-    source = ../../scripts;
+    source = ../scripts;
     recursive = true;
     executable = true;
   };

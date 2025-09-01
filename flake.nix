@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     #nixpkgslib.url = "github:nix-community/nixpkgs.lib";
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -33,7 +34,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     firefox = {
-      url = "path:./nixos/home/modules/firefox";
+      url = "path:./home-manager/modules/firefox";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.firefox-addons.follows = "nixpkgs";
     };
@@ -46,6 +47,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin.url = "github:catppuccin/nix";
+    nixarr = {
+      url = "github:rasmus-kirk/nixarr";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     #gophertube = {
     #  url = "github:/KrishnaSSH/GopherTube";
     #  inputs.nixpkgs.follows = "nixpkgs";
@@ -69,9 +74,14 @@
           inherit system;
           specialArgs = {
             inherit hostname inputs computerType;
+            pkgsStable = import inputs.nixpkgs-stable {
+              inherit system;
+              config.allowUnfree = true;
+            };
           };
           modules = [
             ./nixos
+            (./overlays)
             sops-nix.nixosModules.sops
             catppuccin.nixosModules.catppuccin
             (
@@ -85,8 +95,12 @@
                   extraSpecialArgs = {
                     inherit hostname inputs computerType;
                     nixosOptions = options;
+                    pkgsStable = import inputs.nixpkgs-stable {
+                      inherit system;
+                      config.allowUnfree = true;
+                    };
                   };
-                  users.david = ./nixos/home;
+                  users.david = ./home-manager;
                 };
               }
             )

@@ -2,7 +2,7 @@
 
 {
   home.file."${config.xdg.configHome}/wlogout/scripts" = {
-    source = ../../../../../scripts/wlogout;
+    source = ../../../../scripts/wlogout;
     executable = true;
     recursive = true;
   };

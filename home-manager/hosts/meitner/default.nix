@@ -8,11 +8,12 @@
   ];
 
   home.file.".config/hypr/local/local.conf" = {
-    source = ../../../../hostfiles/hypr/chandrasekhar.conf;
+    source = ../../../hostfiles/hypr/meitner.conf;
   };
+
   wayland.windowManager.hyprland = {
     settings = {
-      monitor = "eDP-1,1920x1080@120,0x0,1";
+      monitor = ",preferred,auto,auto";
     };
   };
 }

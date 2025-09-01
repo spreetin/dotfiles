@@ -44,10 +44,10 @@
 
   # Hyprland
   home.file."${config.xdg.configHome}/hypr/scripts" = {
-    source = ../../../../scripts/hypr;
+    source = ../../../scripts/hypr;
     executable = true;
   };
-  home.file."${config.xdg.configHome}/hypr/wallpaper".source = ../../../../assets/wallpaper;
+  home.file."${config.xdg.configHome}/hypr/wallpaper".source = ../../../assets/wallpaper;
 
   gtk = {
     enable = true;

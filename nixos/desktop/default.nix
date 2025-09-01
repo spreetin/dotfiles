@@ -54,9 +54,12 @@
         theme = "chili";
       };
     };
-    xserver.xkb = {
-      layout = "se";
-      variant = "";
+    xserver = {
+      xkb = {
+        layout = "se,us";
+        variant = "";
+        options = "grp:alt_caps_toggle";
+      };
     };
     blueman.enable = true;
     gnome.gnome-keyring.enable = true;
