@@ -11,7 +11,8 @@
     (final: prev: {
       pythonPackagesOverlays = (prev.pythonPackagesOverlays or [ ]) ++ [
         (python-final: python-prev: {
-          pygls = (./pygls.nix);
+          #pygls = ./pygls.nix;
+          #i3ipc = ./i3ipc.nix;
         })
       ];
 

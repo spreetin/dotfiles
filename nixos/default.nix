@@ -18,6 +18,7 @@
     ./config/services.nix
     ./config/users.nix
     ./config/virtualisation.nix
+    #./config/stylix.nix
 
     ./apps/fs.nix
   ];

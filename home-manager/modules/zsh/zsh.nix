@@ -23,6 +23,12 @@
           "git"
           "ssh"
           "sudo"
+          "web-search"
+          "extract"
+          "colored-man-pages"
+          "compleat"
+          "fzf"
+          "vi-mode"
         ];
       };
       shellAliases = {

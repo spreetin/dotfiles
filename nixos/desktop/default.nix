@@ -58,7 +58,7 @@
       xkb = {
         layout = "se,us";
         variant = "";
-        options = "grp:alt_caps_toggle";
+        options = "grp:alt_shift:toggle";
       };
     };
     blueman.enable = true;

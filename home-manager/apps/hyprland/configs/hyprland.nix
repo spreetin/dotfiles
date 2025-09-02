@@ -69,7 +69,8 @@ in
 
     # Input settings
     input = {
-      kb_layout = "se";
+      kb_layout = "se,us";
+      kb_options = "grp:alt_shift:toggle";
       follow_mouse = 1;
       sensitivity = 0;
       repeat_rate = 30;
@@ -84,7 +85,7 @@ in
       workspace_swipe = false;
     };
 
-    # Keybindings
+    # Keybindingss
     "$mainMod" = "SUPER";
     bind = [
       "$mainMod, D, exec, pkill $menu || true && $menu -show drun -modi drun,filebrowser,run,window"
@@ -101,6 +102,7 @@ in
       "$mainMod, O, exec, ${xdg.configHome}/scripts/waybar/launch.sh"
       "$mainMod, M, exec, killall .waybar-wrapped || waybar"
       "$mainMod SHIFT, Q, exec, $scriptsDir/KillActiveProcess.sh"
+      "CTRL ALT, S, exec, $scriptsDir/Keylayout.sh"
       "CTRL ALT, L, exec, $lock" # $scriptsDir/LockScreen.sh"
       "CTRL ALT, P, exec, wlogout"
       "$mainMod SHIFT, N, exec, swaync-client -t -sw"
@@ -249,11 +251,11 @@ in
       "size 70% 60%, initialTitle:(Open Files)"
       "center, initialTitle:(Open Files)"
       # Opacity
-      "opacity 1.0 0.7, tag:browser*"
-      "opacity 0.9 0.8, tag:projects*"
-      "opacity 0.9 0.8, tag:file-manager*"
-      "opacity 0.95 0.7, tag:terminal*"
-      "opacity 0.8 0.7, tag:settings*"
+      #"opacity 1.0 0.95, tag:browser*"
+      #"opacity 0.9 0.8, tag:projects*"
+      #"opacity 1.0 0.95, tag:file-manager*"
+      #"opacity 1.0 0.95, tag:terminal*"
+      #"opacity 1.0 0.95, tag:settings*"
       # Size
       "size 70% 70%, tag:settings*"
       # Gaming
@@ -285,7 +287,7 @@ in
     decoration = {
       rounding = 4;
       active_opacity = "1.0";
-      inactive_opacity = "0.95";
+      inactive_opacity = "0.9";
       fullscreen_opacity = "1.0";
       dim_inactive = true;
       dim_strength = "0.1";

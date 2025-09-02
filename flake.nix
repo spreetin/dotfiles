@@ -51,10 +51,10 @@
       url = "github:rasmus-kirk/nixarr";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #gophertube = {
-    #  url = "github:/KrishnaSSH/GopherTube";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -63,6 +63,7 @@
       home-manager,
       catppuccin,
       sops-nix,
+      stylix,
       ...
     }@inputs:
     let
@@ -84,6 +85,7 @@
             (./overlays)
             sops-nix.nixosModules.sops
             catppuccin.nixosModules.catppuccin
+            #stylix.nixosModules.stylix
             (
               { options, ... }:
               {
@@ -121,6 +123,14 @@
         meitner = {
           hostname = "meitner";
           computerType = "desktop";
+        };
+        ancilla = {
+          hostname = "ancilla";
+          computerType = "server";
+        };
+        servus = {
+          hostname = "servus";
+          computerType = "server";
         };
       };
     in

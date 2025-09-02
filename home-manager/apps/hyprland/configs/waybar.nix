@@ -38,8 +38,10 @@ in
         #"custom/exit" = (import ./waybar/exit.nix {inherit xdg;});
         #"custom/hypridle" = (import ./waybar/hypridle.nix {inherit xdg;});
         "hyprland/window" = (import ./waybar/hyprland-window.nix);
-        #"keyboard-state" = (import ./waybar/keyboard-state.nix);
-        #"hyprland/language" = {"format" = "/ K {short}";};
+        "keyboard-state" = (import ./waybar/keyboard-state.nix);
+        "hyprland/language" = {
+          "format" = "{short}";
+        };
         "memory" = (import ./waybar/memory.nix { inherit xdg; });
         #"network" = (import ./waybar/network.nix {inherit xdg;});
         "network#speed" = (import ./waybar/network-speed.nix);
@@ -86,9 +88,11 @@ in
           "hyprland/window"
         ];
         modules-center = [
+          "keyboard-state"
           "custom/empty"
           "hyprland/workspaces#rw"
           "custom/empty"
+          "hyprland/language"
         ];
         modules-right = [
           "tray"
