@@ -29,6 +29,7 @@
           "compleat"
           "fzf"
           "vi-mode"
+          "direnv"
         ];
       };
       shellAliases = {
@@ -75,6 +76,11 @@
       prefix = "C-a";
       sensibleOnTop = true;
       shell = "${pkgs.zsh}/bin/zsh";
+    };
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
     };
   };
 }
