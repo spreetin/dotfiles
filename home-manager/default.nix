@@ -16,15 +16,19 @@ let
 in
 {
   imports = [
-    #./david.nix
     ./hosts/${hostname}
     ./types/${computerType}.nix
-    ./home.nix
-    inputs.catppuccin.homeModules.catppuccin
+    ./config.nix
+    ./apps.nix
     inputs.optnix.homeModules.optnix
-    #inputs.nixvim.homeModules.nixvim
     ./catppuccin.nix
   ];
+
+  home.file."${config.xdg.configHome}/scripts" = {
+    source = ../scripts;
+    recursive = true;
+    executable = true;
+  };
 
   programs.optnix = {
     enable = true;

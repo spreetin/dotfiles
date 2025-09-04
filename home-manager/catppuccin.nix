@@ -1,11 +1,12 @@
 {
-  config,
-  pkgs,
-  options,
+  inputs,
   ...
 }:
 
 {
+  imports = [
+    inputs.catppuccin.homeModules.catppuccin
+  ];
   catppuccin = {
     bat.enable = true;
     btop.enable = true;

@@ -22,7 +22,7 @@
     ./../appgroups/networking-gui.nix
     ./../appgroups/office.nix
     #./../appgroups/jetbrains.nix
-    ./../appgroups/android-dev.nix
+    #./../appgroups/android-dev.nix
   ];
 
   home.packages = with pkgs; [
