@@ -65,6 +65,7 @@
       flood.enable = true;
     };
     vpn = {
+      enable = true;
       wgConf = "/data/.secrets/vpn/wg.conf";
     };
   };
