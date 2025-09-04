@@ -18,7 +18,7 @@ in
     # Specific apps
     #inputs.zsh.zsh
     ./modules/zsh/zsh.nix
-    ./apps/isakssons.nix
+    ./apps/optnix.nix
 
     # Package groups
     ./appgroups/compression.nix
