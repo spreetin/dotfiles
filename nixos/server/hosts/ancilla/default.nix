@@ -4,12 +4,6 @@
   imports = [
     ./arr.nix
     ./borg.nix
+    ./homepage.nix
   ];
-
-  users = {
-    users.borg = {
-      isNormalUser = true;
-      description = "Backup user";
-    };
-  };
 }

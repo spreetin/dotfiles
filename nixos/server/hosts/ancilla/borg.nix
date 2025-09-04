@@ -1,6 +1,15 @@
 { ... }:
 
 {
+  users.users.borg = {
+    isNormalUser = true;
+    description = "Backup user";
+    openssh.authorizedKeys.keys = [
+    ];
+    createHome = true;
+    extraGroups = [
+    ];
+  };
   services.borgbackup = {
     jobs =
       let
@@ -16,21 +25,21 @@
           extraCreateArgs = "--verbose --stats --checkpoint-interval 600";
           repo = "ssh://borg@isakssonsmetall.hopto.org:2424//berlin/backups/borg/${name}";
           compression = "zstd,1";
-          startAt = "03:00";
+          startAt = "02:00";
           user = "borg";
         };
       in
       {
-        meitner = borgJob "meitner" // rec {
+        meitner = borgJob "meitner" // {
           paths = "/data/backups/meitner";
         };
-        chandrasekhar = borgJob "chandrasekhar" // rec {
+        chandrasekhar = borgJob "chandrasekhar" // {
           paths = "/data/backups/chandrasekhar";
         };
         #ancilla = borgJob "ancilla" // rec {
         #  paths = ""
         #}
-        sharedFolders = borgJob "sharedfolders" // rec {
+        sharedFolders = borgJob "shared" // {
           paths = "/data/shared";
         };
       };
