@@ -10,7 +10,6 @@
     ./hosts/${hostname}
     ./types/${computerType}.nix
     ./config.nix
-    ./apps.nix
     ./catppuccin.nix
   ];
 
