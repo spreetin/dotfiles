@@ -8,6 +8,7 @@
 {
   imports = [
     ./../apps/hyprland
+    ./../apps/isakssons.nix
     #inputs.hyprland.homeManagerModules.hyprland
     inputs.firefox.firefox
     ./../apps/obs.nix
