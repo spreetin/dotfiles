@@ -15,7 +15,7 @@
       expose.https = {
         enable = true;
         acmeMail = "spreetin@spreetin.eu";
-        domainName = "abs.spreetin.eu";
+        domainName = "media.spreetin.eu";
       };
       vpn.enable = false;
     };
@@ -54,10 +54,10 @@
     transmission = {
       enable = true;
       peerPort = 50000;
-      cross-seed = {
-        enable = true;
-        indexIds = [ ];
-      };
+      #cross-seed = {
+      #  enable = true;
+      #  indexIds = [ ];
+      #};
       disableDhtPex = true;
       vpn.enable = true;
     };
