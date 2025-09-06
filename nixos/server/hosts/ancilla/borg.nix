@@ -23,7 +23,7 @@
             BORG_UNKNOWN_UNENCRYPTED_REPO_ACCESS_IS_OK = "yes";
           };
           extraCreateArgs = "--verbose --stats --checkpoint-interval 600";
-          repo = "ssh://borg@isakssonsmetall.hopto.org:2424//berlin/backups/borg/${name}";
+          repo = "ssh://borg@isakssonsmetall.hopto.org:2424//data/backups/borg/${name}";
           compression = "zstd,1";
           startAt = "02:00";
           user = "borg";

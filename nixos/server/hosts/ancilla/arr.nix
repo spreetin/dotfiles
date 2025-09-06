@@ -15,9 +15,10 @@
       expose.https = {
         enable = true;
         acmeMail = "spreetin@spreetin.eu";
-        domainName = "media.spreetin.eu";
+        domainName = "abs.spreetin.eu";
       };
       vpn.enable = false;
+      port = 13378;
     };
     bazarr = {
       enable = true;
@@ -26,6 +27,11 @@
     jellyseerr = {
       enable = true;
       vpn.enable = false;
+      expose.https = {
+        enable = true;
+        acmeMail = "spreetin@spreetin.eu";
+        domainName = "seer.spreetin.eu";
+      };
     };
     lidarr = {
       enable = true;
@@ -34,6 +40,11 @@
     plex = {
       enable = true;
       vpn.enable = false;
+      expose.https = {
+        enable = true;
+        acmeMail = "spreetin@spreetin.eu";
+        domainName = "media.spreetin.eu";
+      };
     };
     prowlarr = {
       enable = true;
@@ -53,7 +64,7 @@
     };
     transmission = {
       enable = true;
-      peerPort = 50000;
+      peerPort = 33729;
       privateTrackers = {
         cross-seed = {
           enable = true;
@@ -69,4 +80,8 @@
       wgConf = "/data/.secrets/vpn/wg.conf";
     };
   };
+  #util-nixarr.services.cross-seed = {
+  #enable = true;
+
+  #};
 }
