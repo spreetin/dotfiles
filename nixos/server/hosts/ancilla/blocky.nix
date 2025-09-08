@@ -13,23 +13,23 @@
         "9.9.9.9"
       ];
       blocking = {
-        denyLists = {
+        denylists = {
           ads = [ "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts" ];
         };
-      };
-      clientGroupsBlock = {
-        default = [ "ads" ];
+        clientGroupsBlock = {
+          default = [ "ads" ];
+        };
+
       };
       customDNS = {
         customTTL = "1h";
         mapping = {
           "servus" = "192.168.0.106";
-          "ancilla" = "192.168.0.110";
+          "ancilla" = "192.168.0.107";
           "chandrasekhar" = "192.168.0.112";
           "meitner" = "192.168.0.105";
           "thomson" = "192.168.0.114";
-          "media.spreetin.eu" = "192.168.0.110";
-          "dash.spreetin.eu" = "192.168.0.110";
+          "spreetin.eu" = "192.168.0.107";
         };
       };
     };

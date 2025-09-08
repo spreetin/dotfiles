@@ -68,7 +68,13 @@
       privateTrackers = {
         cross-seed = {
           enable = true;
-          indexIds = [ ];
+          indexIds = [
+            1
+            2
+            3
+            4
+            5
+          ];
         };
         disableDhtPex = true;
       };

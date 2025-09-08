@@ -1,0 +1,17 @@
+keys:
+  - &david_ancilla age160ptkklrgxxzk3dj7yah63v8mk96jhugndqrneer5nr6fxzul4xs8yq2xt
+  - &david_meitner age1p2gdgsgys0my37wqft5e6r777mlpmgh5r83ylgpap4ta3qmudvcqukktml
+  - &david_chandrasekhar age1l08m6eacj5fvw7vftudyfqucuhcsyzfyghvatw5fm09kqwxpps6s9e2nrf
+  - &meitner age17mjpn6tmd3nd2pfjtneyc5ad3gx38r490qrnkz4989qy5hpc6gnqgcgrsn
+  - &chandrasekhar age1vvrm6p8c93xny8vkfpvkgxslqmfpv9rjgey48wr5uqwwgy9qf96s7ywsqz
+  - &ancilla age1yawqp9ngvfw2wlcm0teyf7w2h9pezcvueg7ddejcwrhpa02w5a6q2rfwy4
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *david_ancilla
+          - *david_meitner
+          - *david_chandrasekhar
+          - *meitner
+          - *chandrasekhar
+          - *ancilla
