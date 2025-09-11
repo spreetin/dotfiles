@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 
 {
   imports = [
@@ -80,10 +80,29 @@
       };
       vpn.enable = true;
       flood.enable = true;
+      extraSettings = {
+
+      };
     };
     vpn = {
       enable = true;
       wgConf = "/data/.secrets/vpn/wg.conf";
+    };
+  };
+  util-nixarr.services.cross-seed = {
+    user = lib.mkForce "transmission";
+    group = lib.mkForce "media";
+    enable = true;
+    settings = {
+      excludeOlder = "2 weeks";
+      excludeRecentSearch = "3 days";
+      searchCadence = "1 day";
+      linkCategory = "cross-seed-link";
+      linkDirs = [ "/data/media/torrents/xseed" ];
+      linkType = "hardlink";
+      action = "inject";
+      matchMode = "partial";
+      seasonFromEpisodes = 0.9;
     };
   };
   #util-nixarr.services.cross-seed = {
