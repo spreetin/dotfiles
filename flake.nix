@@ -85,6 +85,7 @@
             (./overlays)
             sops-nix.nixosModules.sops
             catppuccin.nixosModules.catppuccin
+            ./sops.nix
             #stylix.nixosModules.stylix
             (
               { options, ... }:

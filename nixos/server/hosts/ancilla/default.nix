@@ -10,4 +10,8 @@
     ./immich.nix
     ./navidrome.nix
   ];
+
+  environment.systemPackages = with pkgs; [
+    unrar
+  ];
 }

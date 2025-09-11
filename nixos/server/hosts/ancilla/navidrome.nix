@@ -8,6 +8,7 @@
     openFirewall = true;
     settings = {
       Address = "0.0.0.0";
+      MusicFolder = "/data/media/library/music/";
     };
   };
 }
