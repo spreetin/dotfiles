@@ -1,16 +1,34 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  modulesPath,
+  ...
+}:
 
 {
-  imports =[ (modulesPath + "/installer/scan/not-detected.nix") ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot = {
     initrd = {
-      availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+      availableKernelModules = [
+        "nvme"
+        "xhci_pci"
+        "ahci"
+        "usbhid"
+        "usb_storage"
+        "sd_mod"
+      ];
       kernelModules = [ ];
     };
-    kernelModules = [ "kvm-amd" "amdgpu" "nct6683" ];
+    kernelModules = [
+      "kvm-amd"
+      "amdgpu"
+      "nct6683"
+    ];
     extraModulePackages = [ ];
     zfs.extraPools = [ "storage" ];
+    supportedFilesystems = [ "nfs" ];
   };
 
   fileSystems = {
@@ -32,7 +50,22 @@
     "/boot" = {
       device = "/dev/disk/by-uuid/508A-9EDF";
       fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
+      options = [
+        "fmask=0022"
+        "dmask=0022"
+      ];
+    };
+    "/home/david/Documents" = {
+      device = "192.168.0.107:/Documents";
+      fsType = "nfs";
+    };
+    "/home/david/Pictures" = {
+      device = "192.168.0.107:/Pictures";
+      fsType = "nfs";
+    };
+    "/home/david/Videos" = {
+      device = "192.168.0.107:/Videos";
+      fsType = "nfs";
     };
   };
 
@@ -51,7 +84,7 @@
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = with pkgs;  [
+      extraPackages = with pkgs; [
         rocmPackages.clr.icd
         amdvlk
         driversi686Linux.amdvlk

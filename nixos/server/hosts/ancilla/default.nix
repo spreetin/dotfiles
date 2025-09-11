@@ -9,6 +9,7 @@
     ./homepage.nix
     ./immich.nix
     ./navidrome.nix
+    ./nfs.nix
   ];
 
   environment.systemPackages = with pkgs; [
