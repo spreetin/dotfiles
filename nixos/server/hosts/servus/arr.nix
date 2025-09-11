@@ -10,7 +10,7 @@
     mediaDir = "/data/media";
     stateDir = "/data/.state/nixarr";
     mediaUsers = [
-      "patrikadmin"
+      "k0ck3n"
       "david"
     ];
     plex = {
