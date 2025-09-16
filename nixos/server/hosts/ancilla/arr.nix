@@ -89,6 +89,11 @@
       wgConf = "/data/.secrets/vpn/wg.conf";
     };
   };
+  services.jellyfin = {
+    enable = true;
+    group = "media";
+    openFirewall = true;
+  };
   util-nixarr.services.cross-seed = {
     user = lib.mkForce "transmission";
     group = lib.mkForce "media";

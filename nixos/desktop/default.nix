@@ -1,4 +1,5 @@
 {
+  inputs,
   hostname,
   pkgs,
   ...
@@ -10,6 +11,7 @@
     ./../apps/gaming.nix
     ./../apps/hyprland.nix
     ./plymouth.nix
+    inputs.nix-flatpak.nixosModules.nix-flatpak
   ];
 
   programs = {
@@ -53,6 +55,12 @@
         wayland.enable = true;
         theme = "chili";
       };
+    };
+    flatpak = {
+      enable = true;
+      packages = [
+        "de.mediathekview.MediathekView"
+      ];
     };
     xserver = {
       xkb = {

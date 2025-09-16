@@ -29,6 +29,7 @@
     calibre
     dia
     ffmpeg
+    protonvpn-gui
     openrgb-with-all-plugins
     solaar
   ];
