@@ -32,7 +32,7 @@
     pamixer
     pavucontrol
     playerctl
-    rofi-wayland
+    rofi
     rose-pine-hyprcursor
     slurp
     swappy

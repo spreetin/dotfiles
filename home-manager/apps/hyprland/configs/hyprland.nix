@@ -81,9 +81,9 @@ in
         natural_scroll = false;
       };
     };
-    gestures = {
-      workspace_swipe = false;
-    };
+    #gestures = {
+    #  workspace_swipe = false;
+    #};
 
     # Keybindingss
     "$mainMod" = "SUPER";

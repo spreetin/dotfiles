@@ -12,6 +12,7 @@
     ./nextcloud.nix
     ./nfs.nix
     #./nginx.nix
+    ./radicale.nix
   ];
 
   environment.systemPackages = with pkgs; [
