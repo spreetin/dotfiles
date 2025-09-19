@@ -6,6 +6,7 @@
 }:
 
 {
+  sops.secrets.myusrpasswd.neededForUsers = true;
   users = {
     users.david = {
       isNormalUser = true;
@@ -18,6 +19,7 @@
         "libvirtd"
         "david"
       ];
+      hashedPasswordFile = config.sops.secrets.myusrpasswd.path;
       uid = 1000;
       shell = pkgs.zsh;
       openssh.authorizedKeys.keys = [

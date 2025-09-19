@@ -74,6 +74,8 @@
             3
             4
             5
+            8
+            12
           ];
         };
         disableDhtPex = true;

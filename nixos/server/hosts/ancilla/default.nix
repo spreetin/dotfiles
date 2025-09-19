@@ -9,7 +9,9 @@
     ./homepage.nix
     ./immich.nix
     ./navidrome.nix
+    ./nextcloud.nix
     ./nfs.nix
+    #./nginx.nix
   ];
 
   environment.systemPackages = with pkgs; [

@@ -1,4 +1,9 @@
-{ pkgs, modulesPath, ... }:
+{
+  config,
+  pkgs,
+  modulesPath,
+  ...
+}:
 
 {
   imports = [
@@ -7,11 +12,12 @@
     ./arr.nix
   ];
 
+  sops.secrets.k0ck3n_passwd.neededForUsers = true;
   users.users.k0ck3n = {
     isNormalUser = true;
     description = "Patrik Isaksson";
     home = "/home/k0ck3n";
-    hashedPassword = "$y$j9T$a8CwoxhGA/0oWAT9XTiOU1$YTunLMmwf0AJ4FKK8jIGahsQOqAdQ3r1lYQkMPdOMo8";
+    hashedPasswordFile = config.sops.secrets.k0ck3n_passwd.path;
     extraGroups = [
       "k0ck3n"
       "wheel"
