@@ -10,6 +10,7 @@
     ./immich.nix
     ./navidrome.nix
     ./nfs.nix
+    ./radicale.nix
   ];
 
   environment.systemPackages = with pkgs; [
